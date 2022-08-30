@@ -1,0 +1,22 @@
+{
+  "name": "hellodialog",
+  "version": "1.0.0",
+  "description": "a customizable javascript's component that makes dialog sweet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuanbaoyaoyao/helloDialog.git"
+  },
+  "keywords": [
+    "dialog"
+  ],
+  "author": "yuanbaoyaoyao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yuanbaoyaoyao/helloDialog/issues"
+  },
+  "homepage": "https://github.com/yuanbaoyaoyao/helloDialog#readme"
+}
