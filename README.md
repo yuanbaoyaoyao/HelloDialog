@@ -1,2 +1,2 @@
 # helloDialog
-a customizable javascript's component that makes dialog sweet
+a customizable javascript's component that makes dialogs sweet
