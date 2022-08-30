@@ -1,0 +1,96 @@
+.hello-dialog-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.3s;
+    opacity: 1;
+    text-align: center;
+  }
+  .hello-dialog-backdrop::after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+  }
+  
+  .hello-dialog {
+    border: medium solid black;
+    border-width: 1px;
+    border-radius: 5px;
+    min-width: 200px;
+    z-index: 10000;
+    background-color: white;
+    display: inline-block;
+    vertical-align: middle;
+    animation: showHelloDialog 0.4s;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+  }
+  .hello-dialog .hello-dialog-header {
+    font-size: large;
+    display: flex;
+  }
+  .hello-dialog .hello-dialog-header p {
+    margin: 0;
+  }
+  .hello-dialog .hello-dialog-header button {
+    border: none;
+    background-color: white;
+    position: relative;
+    left: 110px;
+  }
+  .hello-dialog .hello-dialog-header button::before {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 1px;
+    top: 5px;
+    background-color: black;
+    cursor: pointer;
+    transform: rotate(45deg);
+  }
+  .hello-dialog .hello-dialog-header button::after {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 1px;
+    top: 5px;
+    background-color: black;
+    cursor: pointer;
+    transform: rotate(-45deg);
+  }
+  .hello-dialog .hello-dialog-body {
+    display: flex;
+    justify-content: center;
+  }
+  .hello-dialog .hello-dialog-bottom {
+    display: grid;
+    justify-content: right;
+  }
+  .hello-dialog .hello-dialog-bottom button {
+    width: fit-content;
+  }
+  
+  @keyframes showHelloDialog {
+    0% {
+      transform: scale(1);
+    }
+    5% {
+      transform: scale(0.6);
+    }
+    55% {
+      transform: scale(1.03);
+    }
+    85% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
