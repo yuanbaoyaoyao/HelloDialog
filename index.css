@@ -1,179 +1,181 @@
 .hello-dialog-backdrop {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 5;
-    background-color: rgba(0, 0, 0, 0.4);
-    transition: all 0.3s;
-    opacity: 1;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: all 0.3s;
+  opacity: 1;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hello-dialog-backdrop::after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+.hello-dialog {
+  border: 1px solid black;
+  border-radius: 5px;
+  min-width: 200px;
+  min-height: 70px;
+  width: 200px;
+  height: 70px;
+  z-index: 10000;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: auto;
+  animation: showhelloDialogDom 0.4s;
+  position: relative;
+}
+.hello-dialog .hello-dialog-header {
+  font-size: large;
+  display: flex;
+  justify-content: space-between;
+  cursor: move;
+}
+.hello-dialog .hello-dialog-header p {
+  margin: 0;
+}
+.hello-dialog .hello-dialog-header .hello-dialog-close {
+  border: none;
+  background-color: white;
+  margin-right: 10px;
+  position: relative;
+  top: -14px;
+}
+.hello-dialog .hello-dialog-header .hello-dialog-close::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 1px;
+  background-color: black;
+  cursor: pointer;
+  transform: rotate(45deg);
+}
+.hello-dialog .hello-dialog-header .hello-dialog-close::after {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 1px;
+  background-color: black;
+  cursor: pointer;
+  transform: rotate(-45deg);
+}
+.hello-dialog .hello-dialog-header .hello-dialog-full-screen {
+  border: 1px solid black;
+  border-radius: 2px;
+  background-color: white;
+  height: 15px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.hello-dialog .hello-dialog-body {
+  display: flex;
+  justify-content: center;
+}
+.hello-dialog .hello-dialog-bottom {
+  display: grid;
+  justify-content: right;
+}
+.hello-dialog .hello-dialog-bottom button {
+  width: fit-content;
+}
+.hello-dialog .right-stretch {
+  width: 5px;
+  height: 100%;
+  position: absolute;
+  background-color: blue;
+  cursor: e-resize;
+  right: 0;
+}
+.hello-dialog .top-stretch {
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  background-color: green;
+  cursor: n-resize;
+  top: 0;
+}
+.hello-dialog .bottom-stretch {
+  width: 100%;
+  height: 5px;
+  position: absolute;
+  background-color: yellow;
+  cursor: n-resize;
+  bottom: 0;
+}
+.hello-dialog .left-stretch {
+  width: 5px;
+  height: 100%;
+  position: absolute;
+  background-color: #28a485;
+  cursor: e-resize;
+  left: 0;
+}
+.hello-dialog .top-right-stretch {
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  background-color: #406e1a;
+  cursor: ne-resize;
+  z-index: 10000000000;
+  right: 0;
+  top: 0;
+}
+.hello-dialog .top-left-stretch {
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  background-color: #903685;
+  cursor: nw-resize;
+  z-index: 10000000000;
+  left: 0;
+  top: 0;
+}
+.hello-dialog .bottom-right-stretch {
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  background-color: #0d0f0a;
+  cursor: se-resize;
+  z-index: 10000000000;
+  right: 0;
+  bottom: 0;
+}
+.hello-dialog .bottom-left-stretch {
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  background-color: #4e4031;
+  cursor: ne-resize;
+  z-index: 10000000000;
+  left: 0;
+  bottom: 0;
+}
+
+@keyframes showhelloDialogDom {
+  0% {
+    transform: scale(1);
   }
-  .hello-dialog-backdrop::after {
-    content: "";
-    display: inline-block;
-    vertical-align: middle;
-    height: 100%;
+  5% {
+    transform: scale(0.6);
   }
-  
-  .hello-dialog {
-    border: 1px solid black;
-    border-radius: 5px;
-    min-width: 200px;
-    min-height: 70px;
-    z-index: 10000;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: auto;
-    animation: showhelloDialogDom 0.4s;
-    position: relative;
+  55% {
+    transform: scale(1.03);
   }
-  .hello-dialog .hello-dialog-header {
-    font-size: large;
-    display: flex;
-    justify-content: space-between;
-    cursor: move;
+  85% {
+    transform: scale(0.9);
   }
-  .hello-dialog .hello-dialog-header p {
-    margin: 0;
+  100% {
+    transform: scale(1);
   }
-  .hello-dialog .hello-dialog-header .hello-dialog-close {
-    border: none;
-    background-color: white;
-    margin-right: 10px;
-    position: relative;
-    top: -14px;
-  }
-  .hello-dialog .hello-dialog-header .hello-dialog-close::before {
-    content: "";
-    position: absolute;
-    height: 18px;
-    width: 1px;
-    background-color: black;
-    cursor: pointer;
-    transform: rotate(45deg);
-  }
-  .hello-dialog .hello-dialog-header .hello-dialog-close::after {
-    content: "";
-    position: absolute;
-    height: 18px;
-    width: 1px;
-    background-color: black;
-    cursor: pointer;
-    transform: rotate(-45deg);
-  }
-  .hello-dialog .hello-dialog-header .hello-dialog-full-screen {
-    border: 1px solid black;
-    border-radius: 2px;
-    background-color: white;
-    height: 15px;
-    cursor: pointer;
-    margin-right: 10px;
-  }
-  .hello-dialog .hello-dialog-body {
-    display: flex;
-    justify-content: center;
-  }
-  .hello-dialog .hello-dialog-bottom {
-    display: grid;
-    justify-content: right;
-  }
-  .hello-dialog .hello-dialog-bottom button {
-    width: fit-content;
-  }
-  .hello-dialog .right-stretch {
-    width: 5px;
-    height: 100%;
-    position: absolute;
-    background-color: blue;
-    cursor: e-resize;
-    right: 0;
-  }
-  .hello-dialog .top-stretch {
-    width: 100%;
-    height: 5px;
-    position: absolute;
-    background-color: green;
-    cursor: n-resize;
-    top: 0;
-  }
-  .hello-dialog .bottom-stretch {
-    width: 100%;
-    height: 5px;
-    position: absolute;
-    background-color: yellow;
-    cursor: n-resize;
-    bottom: 0;
-  }
-  .hello-dialog .left-stretch {
-    width: 5px;
-    height: 100%;
-    position: absolute;
-    background-color: #28a485;
-    cursor: e-resize;
-    left: 0;
-  }
-  .hello-dialog .top-right-stretch {
-    width: 5px;
-    height: 5px;
-    position: absolute;
-    background-color: #406e1a;
-    cursor: ne-resize;
-    z-index: 10000000000;
-    right: 0;
-    top: 0;
-  }
-  .hello-dialog .top-left-stretch {
-    width: 5px;
-    height: 5px;
-    position: absolute;
-    background-color: #903685;
-    cursor: nw-resize;
-    z-index: 10000000000;
-    left: 0;
-    top: 0;
-  }
-  .hello-dialog .bottom-right-stretch {
-    width: 5px;
-    height: 5px;
-    position: absolute;
-    background-color: #0d0f0a;
-    cursor: se-resize;
-    z-index: 10000000000;
-    right: 0;
-    bottom: 0;
-  }
-  .hello-dialog .bottom-left-stretch {
-    width: 5px;
-    height: 5px;
-    position: absolute;
-    background-color: #4e4031;
-    cursor: ne-resize;
-    z-index: 10000000000;
-    left: 0;
-    bottom: 0;
-  }
-  
-  @keyframes showhelloDialogDom {
-    0% {
-      transform: scale(1);
-    }
-    5% {
-      transform: scale(0.6);
-    }
-    55% {
-      transform: scale(1.03);
-    }
-    85% {
-      transform: scale(0.9);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
+}

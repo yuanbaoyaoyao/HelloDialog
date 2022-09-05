@@ -50,12 +50,17 @@ class helloDialog {
         const bottomRightStretchDom = backdrop.querySelector(".bottom-right-stretch");
         const bottomLeftStretchDom = backdrop.querySelector(".bottom-left-stretch");
 
-        let isFullScreen = false
+        const headerDom = backdrop.querySelector(".hello-dialog-header");
+        const bodyDom = backdrop.querySelector(".hello-dialog-body");
+        const confirmDom = backdrop.querySelector(".hello-dialog-confirm");
 
         this.backdrop = backdrop
         this.helloDialogDom = helloDialogDom
         this.helloDialogHeaderDom = helloDialogHeaderDom
-        this.isFullScreen = isFullScreen
+
+        this.headerDom = headerDom;
+        this.bodyDom = bodyDom;
+        this.confirmDom = confirmDom;
 
         this.rightStretchDom = rightStretchDom;
         this.topStretchDom = topStretchDom;
@@ -67,14 +72,14 @@ class helloDialog {
         this.bottomLeftStretchDom = bottomLeftStretchDom;
 
 
-        let moveDistanceX = 0;
-        let moveDistanceY = 0;
-        let firstDistanceX = 0;
-        let firstDistanceY = 0;
-        let tempRight = 0;
-        let tempLeft = 0;
-        let tempTop = 0;
-        let tempBottom = 0;
+        let isFullScreen = false;
+
+        let lastMarginRight = 0;
+        let lastMarginBottom = 0;
+        let firstDomLeft = 0;
+        let firstDomTop = 0;
+        let firstDomWidth = 0;
+        let firstDomHeight = 0;
 
         let tempDomWidth = 0;
         let tempDomHeight = 0;
@@ -89,19 +94,24 @@ class helloDialog {
         let stretchDistanceY = 0;
         let firstStretchDistanceX = 0;
         let firstStretchDistanceY = 0;
+        let reachHeightRange = 0;
+        let reachWidthRange = 0;
         let heightRange = 0;
         let widthRange = 0;
 
         let topStretchClientY = 0;
 
-        this.moveDistanceX = moveDistanceX;
-        this.moveDistanceY = moveDistanceY;
-        this.firstDistanceX = firstDistanceX;
-        this.firstDistanceY = firstDistanceY;
-        this.tempRight = tempRight;
-        this.tempLeft = tempLeft;
-        this.tempTop = tempTop;
-        this.tempBottom = tempBottom;
+        this.isFullScreen = isFullScreen
+
+        this.lastMarginRight = lastMarginRight;
+        this.lastMarginBottom = lastMarginBottom;
+        this.firstDomLeft = firstDomLeft;
+        this.firstDomTop = firstDomTop;
+        this.firstDomWidth = firstDomWidth;
+        this.firstDomHeight = firstDomHeight;
+
+        this.reachHeightRange = reachHeightRange;
+        this.reachWidthRange = reachWidthRange;
 
         this.tempDomHeight = tempDomHeight;
         this.tempDomWidth = tempDomWidth;
@@ -145,6 +155,12 @@ class helloDialog {
         backdrop.getElementsByClassName("hello-dialog-close")[0].addEventListener("click", cancle);
         backdrop.getElementsByClassName("hello-dialog-confirm")[0].addEventListener("click", cancle);
         backdrop.getElementsByClassName("hello-dialog-full-screen")[0].addEventListener("click", getFullScreen);
+
+        this.firstDomLeft = this.helloDialogDom.getBoundingClientRect().left;
+        this.firstDomTop = this.helloDialogDom.getBoundingClientRect().top;
+        this.firstDomWidth = this.helloDialogDom.getBoundingClientRect().width;
+        this.firstDomHeight = this.helloDialogDom.getBoundingClientRect().height;
+
         this.helloDialogHeaderDom.onmousedown = this.dialogMove
         this.rightStretchDom.onmousedown = this.dialogStretch;
         this.topStretchDom.onmousedown = this.dialogStretch;
@@ -158,76 +174,59 @@ class helloDialog {
     fullScreen = (helloDialogDom, helloDialogHeaderDom, isFullScreen) => {
         console.log("isFullScreen:", isFullScreen)
         if (!isFullScreen) {
-            helloDialogDom.style.margin = "0";
-            helloDialogDom.style.width = "100vw";
-            helloDialogDom.style.height = "100vh";
-            helloDialogDom.style.position = "fixed";
-            helloDialogDom.style.display = "flex";
-            helloDialogDom.style.flexDirection = "column";
-            helloDialogDom.style.justifyContent = "space-between";
-            helloDialogHeaderDom.style.cursor = "default";
+            this.helloDialogDom.style.margin = "0";
+            this.helloDialogDom.style.width = "100vw";
+            this.helloDialogDom.style.height = "100vh";
+            this.helloDialogDom.style.position = "fixed";
+            this.helloDialogDom.style.display = "flex";
+            this.helloDialogDom.style.flexDirection = "column";
+            this.helloDialogDom.style.justifyContent = "space-between";
+            this.helloDialogHeaderDom.style.cursor = "default";
         } else {
-            helloDialogDom.style.width = "auto";
-            helloDialogDom.style.height = "auto";
-            helloDialogHeaderDom.style.cursor = "move";
+            this.helloDialogDom.style.width = "auto";
+            this.helloDialogDom.style.height = "auto";
+            this.helloDialogHeaderDom.style.cursor = "move";
         }
         this.isFullScreen = !isFullScreen;
     };
 
     dialogMove = (e) => {
-        if (this.firstDistanceX == 0 && this.firstDistanceY == 0) {
-            this.firstDistanceX = e.clientX;
-            this.firstDistanceY = e.clientY;
-            this.moveDistanceX = e.clientX;
-            this.moveDistanceY = e.clientY;
-        } else {
-            this.moveDistanceX = this.firstDistanceX;
-            this.moveDistanceY = this.firstDistanceY;
+        let moveDistanceX = e.clientX;
+        let moveDistanceY = e.clientY;
+
+        if (isNaN(this.helloDialogDom.style.marginRight)) {
+            this.lastMarginRight = parseFloat(this.helloDialogDom.style.marginRight);
         }
+        if (isNaN(this.helloDialogDom.style.marginBottom)) {
+            this.lastMarginBottom = parseFloat(this.helloDialogDom.style.marginBottom);
+        }
+        //应该记录margin值
 
         document.onmousemove = (e) => {
-            let x = e.clientX - this.moveDistanceX;
-            let y = e.clientY - this.moveDistanceY;
-            let maxDomLeft = this.helloDialogDom.getBoundingClientRect().left;
-            let maxDomTop = this.helloDialogDom.getBoundingClientRect().top;
-            let maxDomRight =
-                window.innerWidth - this.helloDialogDom.getBoundingClientRect().right;
-            let maxDomBottom =
-                window.innerHeight - this.helloDialogDom.getBoundingClientRect().bottom;
-            let maxRight = x + maxDomRight;
-            let maxLeft = x - maxDomLeft;
-            let maxTop = y - maxDomTop;
-            let maxBottom = y + maxDomBottom;
-            if (x < this.tempRight) {
-                maxRight = this.tempRight;
-            }
-            if (x > this.tempLeft) {
-                maxLeft = this.tempLeft;
-            }
-            if (y > this.tempTop) {
-                maxTop = this.tempTop;
-            }
-            if (y < this.tempBottom) {
-                maxBottom = this.tempBottom;
+            this.headerDom.style.userSelect = 'none';
+            this.bodyDom.style.userSelect = 'none';
+            this.confirmDom.style.userSelect = 'none';
+
+            let x = e.clientX - moveDistanceX;
+            let y = e.clientY - moveDistanceY;
+            console.log("this.firstDomLeft:", this.firstDomLeft)
+
+            if (-x + this.lastMarginRight / 2 > -this.firstDomLeft + this.widthRange / 2 && -x + this.lastMarginRight / 2 < this.firstDomLeft - this.widthRange / 2) {
+                this.helloDialogDom.style.marginRight = `${-x * 2 + this.lastMarginRight}px`;
+                this.tempMarginRight = -x * 2 + this.lastMarginRight;
             }
 
-            if (x > maxLeft && x < maxRight) {
-                this.helloDialogDom.style.marginRight = `${-x * 2}px`;
-                this.tempRight = x;
-                this.tempLeft = x;
-                this.tempMarginRight = -x * 2;
-            }
-
-            if (y > maxTop && y < maxBottom) {
-                this.helloDialogDom.style.marginBottom = `${-y * 2}px`;
-                this.tempTop = y;
-                this.tempBottom = y;
-                this.tempMarginBottom = -y * 2;
+            if (-y + this.lastMarginBottom / 2 > -this.firstDomTop + this.heightRange / 2 && -y + this.lastMarginBottom / 2 < this.firstDomTop - this.heightRange / 2) {
+                this.helloDialogDom.style.marginBottom = `${-y * 2 + this.lastMarginBottom}px`;
+                this.tempMarginBottom = -y * 2 + this.lastMarginBottom;
             }
         };
         document.onmouseup = (e) => {
             this.firstStretchDistanceX = 0;
             this.firstStretchDistanceY = 0;
+            this.headerDom.style.userSelect = 'auto';
+            this.bodyDom.style.userSelect = 'auto';
+            this.confirmDom.style.userSelect = 'auto';
             document.onmousemove = null;
             document.onmouseup = null;
         };
@@ -244,7 +243,6 @@ class helloDialog {
         let tempDomTop = this.helloDialogDom.getBoundingClientRect().top;
         let tempDomBottom =
             window.innerHeight - this.helloDialogDom.getBoundingClientRect().bottom;
-        let tempDomLeft = this.helloDialogDom.getBoundingClientRect().left;
 
         let tempClassName = e.srcElement.className;
 
@@ -254,6 +252,9 @@ class helloDialog {
         let isReachLeft = false;
 
         document.onmousemove = (e) => {
+            this.headerDom.style.userSelect = 'none';
+            this.bodyDom.style.userSelect = 'none';
+            this.confirmDom.style.userSelect = 'none';
             let domWidth = this.helloDialogDom.getBoundingClientRect().width;
             let domHeight = this.helloDialogDom.getBoundingClientRect().height;
 
@@ -265,6 +266,9 @@ class helloDialog {
                 window.innerHeight - this.helloDialogDom.getBoundingClientRect().bottom;
             let domMarginRight = parseFloat(this.helloDialogDom.style.marginRight);
             let domMarginBottom = parseFloat(this.helloDialogDom.style.marginBottom);
+
+            this.widthRange = domWidth - this.firstDomWidth;
+            this.heightRange = domHeight - this.firstDomHeight;
 
             if (e.clientX < domWidth && e.clientX > 0) {
                 domWidth = e.clientX;
@@ -286,33 +290,35 @@ class helloDialog {
                             `${tempWidth + (e.clientX - tempStretchX) * 2}` + "px";
                     } else if (domLeft <= 0 && !isReachLeft) {
                         //如果容器刚刚抵达左边
-                        this.stretchDistanceX = e.clientX;
+                        this.stretchDistanceY = e.clientX;
                         if (!this.firstStretchDistanceX) {
                             this.firstStretchDistanceX = e.clientX;
-                            this.widthRange = parseFloat(this.helloDialogDom.style.width) - tempWidth;
+                            this.reachWidthRange = parseFloat(this.helloDialogDom.style.width) - tempWidth;
                         }
                         isReachLeft = true;
                         tempWidth = parseFloat(this.helloDialogDom.style.width);
                         this.tempMarginRight = parseFloat(this.helloDialogDom.style.marginRight);
                     }
+
                     if (
                         isReachLeft &&
                         domMarginRight > 0 &&
-                        e.clientX >= this.firstStretchDistanceX - this.widthRange
+                        e.clientX >= this.firstStretchDistanceX - this.reachWidthRange
+                        && window.innerWidth > domWidth
                     ) {
                         //如果抵达左边但margin还没有为0
-                        this.tempMoveX = e.clientX - this.stretchDistanceX;
+                        this.tempMoveX = e.clientX - this.stretchDistanceY;
                         let marginRightChange = this.tempMarginRight - this.tempMoveX;
                         this.helloDialogDom.style.marginRight = `${marginRightChange}px`;
-                        this.helloDialogDom.style.width =
-                            `${tempWidth + (e.clientX + this.tempMoveX)}` + "px";
+                        this.helloDialogDom.style.width = `${tempWidth + (this.tempMoveX)}` + "px";
                     }
+
                     if (domMarginRight <= 0 || isNaN(domMarginRight)) {
                         this.helloDialogDom.style.width =
                             `${tempWidth + (e.clientX - tempStretchX) * 2}` + "px";
                         //如果说已经到达中心
                     }
-                } else if (domRight > 0 || isNaN(domMarginRight)) {
+                } else if (domRight > 0 || isNaN(domMarginRight) || tempWidth > domWidth) {
                     this.helloDialogDom.style.width =
                         `${tempWidth + (e.clientX - tempStretchX) * 2}` + "px";
                 }
@@ -330,9 +336,9 @@ class helloDialog {
                     } else if (domRight <= 0 && !isReachRight) {
                         if (!this.firstStretchDistanceX) {
                             this.firstStretchDistanceX = e.clientX;
-                            this.widthRange = parseFloat(this.helloDialogDom.style.width) - tempWidth;
+                            this.reachWidthRange = parseFloat(this.helloDialogDom.style.width) - tempWidth;
                         }
-                        this.stretchDistanceX = e.clientX;
+                        this.stretchDistanceY = e.clientX;
                         isReachRight = true;
                         tempWidth = parseFloat(this.helloDialogDom.style.width);
                         this.tempMarginRight = parseFloat(this.helloDialogDom.style.marginRight);
@@ -340,16 +346,17 @@ class helloDialog {
                     if (
                         isReachRight &&
                         domMarginRight < 0 &&
-                        e.clientX <= this.firstStretchDistanceX + this.widthRange
+                        e.clientX <= this.firstStretchDistanceX + this.reachWidthRange
+                        && window.innerWidth > domWidth
                     ) {
-                        this.tempMoveX = e.clientX - this.stretchDistanceX;
+                        this.tempMoveX = e.clientX - this.stretchDistanceY;
                         let marginRightChange = this.tempMarginRight - this.tempMoveX;
                         this.helloDialogDom.style.marginRight = `${marginRightChange}px`;
                         this.helloDialogDom.style.width =
-                            `${tempWidth - (e.clientX - this.stretchDistanceX)}` + "px";
+                            `${tempWidth - (this.tempMoveX)}` + "px";
                     }
                 }
-                if (domMarginRight == 0 || isNaN(domMarginRight)) {
+                if (domMarginRight >= 0 || isNaN(domMarginRight)) {
                     this.helloDialogDom.style.width =
                         `${tempWidth - (e.clientX - tempStretchX) * 2}` + "px";
                 }
@@ -369,7 +376,7 @@ class helloDialog {
                         isReachBottom = true;
                         if (!this.firstStretchDistanceY) {
                             this.firstStretchDistanceY = e.clientY;
-                            this.heightRange = parseFloat(this.helloDialogDom.style.height) - tempHeight;
+                            this.reachHeightRange = parseFloat(this.helloDialogDom.style.height) - tempHeight;
                         }
                         this.stretchDistanceY = e.clientY;
                         tempHeight = parseFloat(this.helloDialogDom.style.height);
@@ -379,7 +386,7 @@ class helloDialog {
                         isReachBottom &&
                         domMarginBottom < 0 &&
                         parseFloat(this.helloDialogDom.style.height) < window.innerHeight &&
-                        e.clientY <= this.firstStretchDistanceY + this.heightRange
+                        e.clientY <= this.firstStretchDistanceY + this.reachHeightRange
                     ) {
                         this.tempMoveY = e.clientY - this.stretchDistanceY;
                         let marginBottomChange = this.tempMarginBottom - this.tempMoveY;
@@ -425,12 +432,11 @@ class helloDialog {
                         //刚刚抵达顶部
                         domTop <= 0 &&
                         !isReachTop
-                        // && domMarginBottom <= this.tempMarginBottom
                     ) {
                         isReachTop = true;
                         if (!this.firstStretchDistanceY) {
                             this.firstStretchDistanceY = e.clientY;
-                            this.heightRange = parseFloat(this.helloDialogDom.style.height) - tempHeight;
+                            this.reachHeightRange = parseFloat(this.helloDialogDom.style.height) - tempHeight;
                         }
                         this.stretchDistanceY = e.clientY;
                         tempHeight = parseFloat(this.helloDialogDom.style.height);
@@ -440,10 +446,8 @@ class helloDialog {
                         isReachTop &&
                         domMarginBottom > 0 &&
                         parseFloat(this.helloDialogDom.style.height) < window.innerHeight &&
-                        e.clientY >= this.stretchDistanceY - this.heightRange
+                        e.clientY >= this.stretchDistanceY - this.reachHeightRange
                     ) {
-                        console.log("e.clientY:", e.clientY);
-                        console.log("this.stretchDistanceY:", this.stretchDistanceY);
                         this.tempMoveY = e.clientY - this.stretchDistanceY;
                         let marginBottomChange = this.tempMarginBottom - this.tempMoveY;
                         this.helloDialogDom.style.marginBottom = `${marginBottomChange}px`;
@@ -508,6 +512,9 @@ class helloDialog {
             }
         };
         document.onmouseup = (e) => {
+            this.headerDom.style.userSelect = 'auto';
+            this.bodyDom.style.userSelect = 'auto';
+            this.confirmDom.style.userSelect = 'auto';
             document.onmousemove = null;
             document.onmouseup = null;
         };
