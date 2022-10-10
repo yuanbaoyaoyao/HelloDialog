@@ -6,7 +6,7 @@ export type HelloArgs = Partial<HelloOptions>
 const hello = (...args: Array<HelloArgs>): void => {
     const options: HelloOptions = getOptions(args)
     console.log("hello options:",options)
-    renderDom()
+    renderDom(options)
 }
 
 export default hello

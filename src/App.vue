@@ -7,7 +7,7 @@ import Hello from './helloDialog'
 setTimeout(function () {
   Hello({
     text: 'Search for a movie. e.g. "La La Land".',
-    content: "yes",
+    content: "非常好",
     button: {
       text: "Search!",
       closeModal: false,
