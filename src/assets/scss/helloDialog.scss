@@ -1,0 +1,216 @@
+@mixin forkBody {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 1px;
+    background-color: black;
+    cursor: pointer;
+}
+
+.hello-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: all 0.3s;
+    opacity: 1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+    }
+}
+
+.hello-modal {
+    border-radius: 5px;
+    min-width: 200px;
+    min-height: 70px;
+    width: fit-content;
+    height: fit-content;
+    z-index: 10000;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: auto;
+    animation: showhelloDialogDom 0.4s;
+    position: relative;
+
+    .hello-header {
+        padding: 5px;
+        font-size: large;
+        display: flex;
+        justify-content: space-between;
+        cursor: move;
+
+        p {
+            margin: 0;
+        }
+
+        .hello-close-button {
+            border: none;
+            background-color: white;
+            margin-right: 10px;
+            position: relative;
+            top: -14px;
+
+            &::before {
+                @include forkBody();
+                transform: rotate(45deg);
+            }
+
+            &::after {
+                @include forkBody();
+                transform: rotate(-45deg);
+            }
+        }
+
+        .hello-full-screen-button {
+            border: 1px solid black;
+            border-radius: 2px;
+            background-color: white;
+            height: 15px;
+            width: 15px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    }
+
+    .hello-content {
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .hello-bottom {
+        padding: 5px;
+        display: grid;
+        justify-content: right;
+        display: flex;
+
+        button {
+            width: fit-content;
+            margin: 2px;
+            border-radius: 5px;
+            border-width: 0.5px;
+            cursor: pointer;
+        }
+
+        .hello-confirm-button {
+            background-color: #66B1FF;
+            border: none;
+        }
+    }
+
+    .hello-right-stretch {
+        width: 5px;
+        height: 100%;
+        position: absolute;
+        background-color: blue;
+        cursor: e-resize;
+        right: 0;
+    }
+
+    .hello-top-stretch {
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        background-color: green;
+        cursor: n-resize;
+        top: 0;
+    }
+
+    .hello-bottom-stretch {
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        background-color: yellow;
+        cursor: n-resize;
+        bottom: 0;
+    }
+
+    .hello-left-stretch {
+        width: 5px;
+        height: 100%;
+        position: absolute;
+        background-color: rgb(40, 164, 133);
+        cursor: e-resize;
+        left: 0;
+    }
+
+    .hello-top-right-stretch {
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        background-color: rgb(64, 110, 26);
+        cursor: ne-resize;
+        z-index: 10000000000;
+        right: 0;
+        top: 0;
+    }
+
+    .hello-top-left-stretch {
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        background-color: rgb(144, 54, 133);
+        cursor: nw-resize;
+        z-index: 10000000000;
+        left: 0;
+        top: 0;
+    }
+
+    .hello-bottom-right-stretch {
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        background-color: rgb(13, 15, 10);
+        cursor: se-resize;
+        z-index: 10000000000;
+        right: 0;
+        bottom: 0;
+    }
+
+    .hello-bottom-left-stretch {
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        background-color: rgb(78, 64, 49);
+        cursor: ne-resize;
+        z-index: 10000000000;
+        left: 0;
+        bottom: 0;
+    }
+}
+
+@keyframes showhelloDialogDom {
+    0% {
+        transform: scale(1);
+    }
+
+    5% {
+        transform: scale(0.6);
+    }
+
+    55% {
+        transform: scale(1.03);
+    }
+
+    85% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
