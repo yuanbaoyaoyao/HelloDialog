@@ -3,7 +3,7 @@ import CLASS_NAMES from '../classNames'
 
 const { CONFIRM_BUTTON, CANCEL_BUTTON } = CLASS_NAMES;
 
-const renderBottom = (): void => {
+const renderBottom = (options: object | string): void => {
     const confirmButton: Node = getNode(CONFIRM_BUTTON)
     const cancelButton: Node = getNode(CANCEL_BUTTON)
     confirmButton.textContent = "确定"

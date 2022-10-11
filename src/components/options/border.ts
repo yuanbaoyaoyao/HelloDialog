@@ -9,7 +9,20 @@ export const defaultBorderOptions: BorderOptions = {
 }
 
 export const getBorderOptions = (options: object): BorderOptions => {
-    console.log("options:", options)
+    let tempOptions = <any>{}
+    let finalOptions = <any>{}
+    tempOptions = Object.assign({}, options)
+    finalOptions = Object.assign({}, defaultBorderOptions)
+    Object.keys(finalOptions).filter(item => {
+        if (tempOptions[item] != undefined) {
+            finalOptions[item] = tempOptions[item]
+        }
+    })
+
+    if (options == undefined) {
+        return defaultBorderOptions
+    }
+    return finalOptions
 }
 
 export default getBorderOptions

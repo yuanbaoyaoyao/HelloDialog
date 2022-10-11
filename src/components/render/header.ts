@@ -1,6 +1,6 @@
 import CLASS_NAMES from '../classNames'
 
-const renderHeader = (): void => {
+const renderHeader = (options: object | string): void => {
 }
 
 export default renderHeader

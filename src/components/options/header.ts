@@ -1,13 +1,22 @@
 export interface HeaderOptions {
-    closeModal?: boolean
+    background?: boolean | null,
+    touch?: boolean,
+    enableFullScreen?: boolean,
+    titleLayout?: string,
+    enableMove?: boolean,
 }
 
 export const defaultHeaderOptions: HeaderOptions = {
-    closeModal: true
+    background: null,
+    touch: false,
+    enableFullScreen: false,
+    titleLayout: 'center',
+    enableMove: false,
 }
 
-export const getHeaderOptions = (options: object): HeaderOptions => {
-    console.log("options:", options)
+export const getHeaderOptions = (options: object | string): HeaderOptions => {
+    return{
+    }
 }
 
 export default getHeaderOptions

@@ -1,13 +1,34 @@
 export interface ModalOptions {
-    closeModal?: boolean
+    background?: string | null,
+    position?: string,
+    timer?: number | null,
+    loading?: boolean,
+    appendToBody?: boolean,
 }
 
 export const defaultModalOptions: ModalOptions = {
-    closeModal: true
+    background: null,
+    position: 'center',
+    timer: null,
+    loading: false,
+    appendToBody: false,
 }
 
 export const getModalOptions = (options: object): ModalOptions => {
-    console.log("options:", options)
+    let tempOptions = <any>{}
+    let finalOptions = <any>{}
+    tempOptions = Object.assign({}, options)
+    finalOptions = Object.assign({}, defaultModalOptions)
+    Object.keys(finalOptions).filter(item => {
+        if (tempOptions[item] != undefined) {
+            finalOptions[item] = tempOptions[item]
+        }
+    })
+
+    if (options == undefined) {
+        return defaultModalOptions
+    }
+    return finalOptions
 }
 
 export default getModalOptions

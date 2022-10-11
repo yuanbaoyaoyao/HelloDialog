@@ -4,7 +4,7 @@ import CLASS_NAMES from '../classNames'
 
 const { BORDER } = CLASS_NAMES;
 
-const renderBorder = (): void => {
+const renderBorder = (options: object | string): void => {
     // const modalContainer: Node = getNode(MODAL)
 }
 

@@ -6,13 +6,15 @@ import Hello from './helloDialog'
 
 setTimeout(function () {
   Hello({
-    text: 'Search for a movie. e.g. "La La Land".',
-    content: "非常好",
-    button: {
-      text: "Search!",
-      closeModal: false,
+    content: {
+      // background: {
+      //   color: '123',
+      //   picUrl: '123'
+      // },
+      // touch: true,
+      // layout: 'left',
+      type: 'input'
     },
-    hello: 123
   })
 }, 500)
 </script>

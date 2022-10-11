@@ -8,12 +8,12 @@ import triggerAll from '../triggers'
 import { HelloOptions } from '../options'
 
 const renderDom = (options: HelloOptions): void => {
-    renderBackdrop()
-    renderModal()
-    renderHeader()
-    renderBorder()
+    renderBackdrop(options)
+    renderModal(options)
+    renderHeader(options)
+    renderBorder(options)
     renderContent(options)
-    renderBottom()
+    renderBottom(options)
     triggerAll()
 }
 

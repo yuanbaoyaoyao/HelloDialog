@@ -23,13 +23,17 @@ const defaultOptions: HelloOptions = {
     modal: defaultModalOptions,
 }
 
-export type HelloArgs = Partial<HelloOptions>[]
+export type HelloArgs = Partial<HelloOptions>
 
-export const getOptions = (...args: Array<HelloArgs>): HelloOptions => {
+export const getOptions = (args: HelloArgs): HelloOptions => {
     let options = <any>{}
-    let temp: string = <string>args[0][0].content
-    options.content = getContentOptions(temp)
-    const helloOptions: HelloOptions = Object.assign({}, options)
+    options = Object.assign({}, args)
+    options.content = getContentOptions(options.content)
+    options.bottom = getBottomOptions(options.bottom)
+    options.modal = getModalOptions(options.modal)
+    options.border = getBorderOptions(options.border)
+    options.backdrop = getBackdropOptions(options.backdrop)
+    const helloOptions: HelloOptions = Object.assign({}, defaultOptions, options)
     return helloOptions
 }
 

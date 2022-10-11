@@ -5,7 +5,7 @@ import globalState from '../../store'
 
 const { MODAL } = CLASS_NAMES;
 
-const renderModal = (): void => {
+const renderModal = (options: object | string): void => {
     const modalContainer: HTMLElement = getNode(MODAL)
     modalContainer.appendChild(border)
     modalContainer.appendChild(header)
