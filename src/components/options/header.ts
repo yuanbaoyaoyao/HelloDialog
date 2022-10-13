@@ -15,8 +15,20 @@ export const defaultHeaderOptions: HeaderOptions = {
 }
 
 export const getHeaderOptions = (options: object | string): HeaderOptions => {
-    return{
+    let tempOptions = <any>{}
+    let finalOptions = <any>{}
+    tempOptions = Object.assign({}, options)
+    finalOptions = Object.assign({}, defaultHeaderOptions)
+    Object.keys(finalOptions).filter(item => {
+        if (tempOptions[item] != undefined) {
+            finalOptions[item] = tempOptions[item]
+        }
+    })
+
+    if (options == undefined) {
+        return defaultHeaderOptions
     }
+    return finalOptions
 }
 
 export default getHeaderOptions

@@ -1,3 +1,4 @@
+import { BottomOptions } from '../options/bottom'
 import { getNode } from '../../utils/domUtils'
 import CLASS_NAMES from '../classNames'
 

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+import { SET_BLOCK_TRACKING } from '@vue/compiler-core';
 import HelloWorld from './components/HelloWorld.vue'
 import Hello from './helloDialog'
 
@@ -15,6 +16,16 @@ setTimeout(function () {
       // layout: 'left',
       type: 'input'
     },
+    border: {
+      enable: false
+    }
+    // backdrop: {
+    //   closeModal: false,
+    //   background: {
+    //     picUrl: 'https://img0.baidu.com/it/u=2913413499,2575831010&fm=253&fmt=auto&app=138&f=JPEG?w=640&h=256',
+    //     picSize: '10%'
+    //   }
+    // }
   })
 }, 500)
 </script>

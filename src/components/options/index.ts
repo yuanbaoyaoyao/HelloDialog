@@ -30,6 +30,7 @@ export const getOptions = (args: HelloArgs): HelloOptions => {
     options = Object.assign({}, args)
     options.content = getContentOptions(options.content)
     options.bottom = getBottomOptions(options.bottom)
+    options.header = getHeaderOptions(options.header)
     options.modal = getModalOptions(options.modal)
     options.border = getBorderOptions(options.border)
     options.backdrop = getBackdropOptions(options.backdrop)

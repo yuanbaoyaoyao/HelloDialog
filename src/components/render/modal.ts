@@ -1,11 +1,17 @@
-import { border, bottom, content, header } from "../dom";
+import { border, bottom, content, header, modal, outermost } from "../dom";
+import { ModalOptions } from '../options/modal'
 import { getNode } from '../../utils/domUtils'
 import CLASS_NAMES from '../classNames'
 import globalState from '../../store'
 
-const { MODAL } = CLASS_NAMES;
+const { MODAL, OUTERMOST } = CLASS_NAMES;
 
-const renderModal = (options: object | string): void => {
+const renderModal = (options: ModalOptions): void => {
+    // document.body.appendChild(modal)
+    document.body.appendChild(outermost)
+    const outermostContainer: HTMLElement = getNode(OUTERMOST)
+    console.log("outermoustContainer:", outermostContainer)
+    outermostContainer.appendChild(modal)
     const modalContainer: HTMLElement = getNode(MODAL)
     modalContainer.appendChild(border)
     modalContainer.appendChild(header)

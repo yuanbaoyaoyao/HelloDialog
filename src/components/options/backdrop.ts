@@ -1,21 +1,34 @@
+import { backgroundOptions, defaultBackgroundOptions } from './commonOptions'
+
 export interface BackdropOptions {
     closeModal?: boolean,
-    background?: boolean | null,
+    background?: string | backgroundOptions | null
 }
 
 export const defaultBackdropOptions: BackdropOptions = {
     closeModal: true,
-    background: null
+    background: defaultBackgroundOptions
 }
 
 export const getBackdropOptions = (options: object | string): BackdropOptions => {
     let tempOptions = <any>{}
+    let finalBackgroundOptions = <any>{}
     let finalOptions = <any>{}
     tempOptions = Object.assign({}, options)
+    finalBackgroundOptions = Object.assign({}, defaultBackgroundOptions)
     finalOptions = Object.assign({}, defaultBackdropOptions)
     Object.keys(finalOptions).filter(item => {
         if (tempOptions[item] != undefined) {
-            finalOptions[item] = tempOptions[item]
+            if (typeof (tempOptions[item]) == 'object') {
+                Object.keys(finalBackgroundOptions).filter(i => {
+                    if (tempOptions[item][i] != undefined) {
+                        finalBackgroundOptions[i] = tempOptions[item][i]
+                    }
+                })
+                finalOptions[item] = finalBackgroundOptions
+            } else {
+                finalOptions[item] = tempOptions[item]
+            }
         }
     })
 

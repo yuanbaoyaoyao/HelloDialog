@@ -19,6 +19,7 @@ export const CLASS_NAMES: ClassNameList = addPrefix({
     BOTTOM_RIGHT_STRETCH: 'bottom-right-stretch',
     BOTTOM_LEFT_STRETCH: 'bottom-left-stretch',
 
+    OUTERMOST:'outermost',
     BACKDROP: 'backdrop',
     MODAL: 'modal',
     HEADER: 'header',
