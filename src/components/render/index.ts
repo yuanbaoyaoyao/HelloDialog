@@ -14,7 +14,7 @@ const renderDom = (options: HelloOptions): void => {
     renderBorder(options.border)
     renderContent(options.content)
     renderBottom(options.bottom)
-    triggerAll()
+    // triggerAll()
 }
 
 export default renderDom

@@ -1,12 +1,13 @@
 import { getNode } from '../../utils/domUtils'
 import CLASS_NAMES from '../classNames'
 import globalState from '../../store'
+import { BorderOptions } from '../options/border';
 
 const { CONFIRM_BUTTON, HEADER, MODAL, RIGHT_STRETCH, TOP_STRETCH, BOTTOM_STRETCH, LEFT_STRETCH, TOP_RIGHT_STRETCH, TOP_LEFT_STRETCH, BOTTOM_RIGHT_STRETCH, BOTTOM_LEFT_STRETCH } = CLASS_NAMES;
 
 let tempClassName: string = "";
 
-export const triggerBorder = (): void => {
+export const triggerBorder = (options: BorderOptions): void => {
     const rightStretchContainer: HTMLElement = getNode(RIGHT_STRETCH)
     const topStretchContainer: HTMLElement = getNode(TOP_STRETCH)
     const bottomStretchContainer: HTMLElement = getNode(BOTTOM_STRETCH)
@@ -16,6 +17,7 @@ export const triggerBorder = (): void => {
     const bottomRightStretchContainer: HTMLElement = getNode(BOTTOM_RIGHT_STRETCH)
     const bottomLeftStretchContainer: HTMLElement = getNode(BOTTOM_LEFT_STRETCH)
 
+    console.log("triggerBorder")
     rightStretchContainer.onmousedown = borderStretch
     topStretchContainer.onmousedown = borderStretch
     bottomStretchContainer.onmousedown = borderStretch

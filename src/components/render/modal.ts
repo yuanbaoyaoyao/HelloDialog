@@ -7,10 +7,8 @@ import globalState from '../../store'
 const { MODAL, OUTERMOST } = CLASS_NAMES;
 
 const renderModal = (options: ModalOptions): void => {
-    // document.body.appendChild(modal)
     document.body.appendChild(outermost)
     const outermostContainer: HTMLElement = getNode(OUTERMOST)
-    console.log("outermoustContainer:", outermostContainer)
     outermostContainer.appendChild(modal)
     const modalContainer: HTMLElement = getNode(MODAL)
     modalContainer.appendChild(border)
