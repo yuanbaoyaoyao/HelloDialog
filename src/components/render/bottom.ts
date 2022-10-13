@@ -1,14 +1,9 @@
 import { BottomOptions } from '../options/bottom'
-import { getNode } from '../../utils/domUtils'
-import CLASS_NAMES from '../classNames'
+import triggerBottom from '../triggers/bottom'
 
-const { CONFIRM_BUTTON, CANCEL_BUTTON } = CLASS_NAMES;
 
-const renderBottom = (options: object | string): void => {
-    const confirmButton: Node = getNode(CONFIRM_BUTTON)
-    const cancelButton: Node = getNode(CANCEL_BUTTON)
-    confirmButton.textContent = "确定"
-    cancelButton.textContent = "取消"
+const renderBottom = (options: BottomOptions): void => {
+    triggerBottom(options)
 }
 
 export default renderBottom

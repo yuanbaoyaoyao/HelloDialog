@@ -1,4 +1,4 @@
-import { backgroundOptions, defaultBackgroundOptions } from './commonOptions'
+import { backgroundOptions, defaultBackgroundOptions } from './common'
 
 export interface BackdropOptions {
     closeModal?: boolean,

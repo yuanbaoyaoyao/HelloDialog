@@ -1,13 +1,14 @@
+import { backgroundOptions } from './common'
 export interface BottomOptions {
-    background?: boolean,
+    background?: string | backgroundOptions | null,
     touch?: boolean | null,
     layout?: string,
 }
 
 export const defaultBottomOptions: BottomOptions = {
-    background: true,
+    background: null,
+    layout: 'center',
     touch: null,
-    layout: 'center'
 }
 
 export const getBottomOptions = (options: object): BottomOptions => {

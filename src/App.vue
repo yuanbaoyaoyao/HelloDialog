@@ -17,7 +17,8 @@ setTimeout(function () {
       type: 'input'
     },
     border: {
-      enable: false,
+      enable: true,
+      selected: ['top', 'bottom']
     }
     // backdrop: {
     //   closeModal: false,

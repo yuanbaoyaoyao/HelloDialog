@@ -6,28 +6,55 @@ import { BorderOptions } from '../options/border';
 const { CONFIRM_BUTTON, HEADER, MODAL, RIGHT_STRETCH, TOP_STRETCH, BOTTOM_STRETCH, LEFT_STRETCH, TOP_RIGHT_STRETCH, TOP_LEFT_STRETCH, BOTTOM_RIGHT_STRETCH, BOTTOM_LEFT_STRETCH } = CLASS_NAMES;
 
 let tempClassName: string = "";
+let rightStretchContainer: HTMLElement
+let topStretchContainer: HTMLElement
+let bottomStretchContainer: HTMLElement
+let leftStretchContainer: HTMLElement
+let topRightStretchContainer: HTMLElement
+let topLeftStretchContainer: HTMLElement
+let bottomRightStretchContainer: HTMLElement
+let bottomLeftStretchContainer: HTMLElement
 
 export const triggerBorder = (options: BorderOptions): void => {
-    const rightStretchContainer: HTMLElement = getNode(RIGHT_STRETCH)
-    const topStretchContainer: HTMLElement = getNode(TOP_STRETCH)
-    const bottomStretchContainer: HTMLElement = getNode(BOTTOM_STRETCH)
-    const leftStretchContainer: HTMLElement = getNode(LEFT_STRETCH)
-    const topRightStretchContainer: HTMLElement = getNode(TOP_RIGHT_STRETCH)
-    const topLeftStretchContainer: HTMLElement = getNode(TOP_LEFT_STRETCH)
-    const bottomRightStretchContainer: HTMLElement = getNode(BOTTOM_RIGHT_STRETCH)
-    const bottomLeftStretchContainer: HTMLElement = getNode(BOTTOM_LEFT_STRETCH)
+    rightStretchContainer = getNode(RIGHT_STRETCH)
+    topStretchContainer = getNode(TOP_STRETCH)
+    bottomStretchContainer = getNode(BOTTOM_STRETCH)
+    leftStretchContainer = getNode(LEFT_STRETCH)
+    topRightStretchContainer = getNode(TOP_RIGHT_STRETCH)
+    topLeftStretchContainer = getNode(TOP_LEFT_STRETCH)
+    bottomRightStretchContainer = getNode(BOTTOM_RIGHT_STRETCH)
+    bottomLeftStretchContainer = getNode(BOTTOM_LEFT_STRETCH)
 
-    console.log("triggerBorder")
-    rightStretchContainer.onmousedown = borderStretch
-    topStretchContainer.onmousedown = borderStretch
-    bottomStretchContainer.onmousedown = borderStretch
-    leftStretchContainer.onmousedown = borderStretch
-    topRightStretchContainer.onmousedown = borderStretch
-    topLeftStretchContainer.onmousedown = borderStretch
-    bottomRightStretchContainer.onmousedown = borderStretch
-    bottomLeftStretchContainer.onmousedown = borderStretch
-
+    if (options.enable) {
+        if (typeof (options.selected) == 'string') {
+            handleMousedown(options.selected)
+        } else if (Array.isArray(options.selected)) {
+            options.selected.filter(item => handleMousedown(item))
+        } else if (options.selected == null) {
+            rightStretchContainer.onmousedown = borderStretch
+            topStretchContainer.onmousedown = borderStretch
+            bottomStretchContainer.onmousedown = borderStretch
+            leftStretchContainer.onmousedown = borderStretch
+            topRightStretchContainer.onmousedown = borderStretch
+            topLeftStretchContainer.onmousedown = borderStretch
+            bottomRightStretchContainer.onmousedown = borderStretch
+            bottomLeftStretchContainer.onmousedown = borderStretch
+        }
+    }
 }
+const handleMousedown = (className: String) => {
+    switch (className) {
+        case 'right': rightStretchContainer.onmousedown = borderStretch; break;
+        case 'top': topStretchContainer.onmousedown = borderStretch; break;
+        case 'bottom': bottomStretchContainer.onmousedown = borderStretch; break;
+        case 'left': leftStretchContainer.onmousedown = borderStretch; break;
+        case 'top-right': topRightStretchContainer.onmousedown = borderStretch; break;
+        case 'top-left': topLeftStretchContainer.onmousedown = borderStretch; break;
+        case 'bottom-right': bottomRightStretchContainer.onmousedown = borderStretch; break;
+        case 'bottom-left': bottomLeftStretchContainer.onmousedown = borderStretch; break;
+    }
+}
+
 
 const borderStretch = (e: MouseEvent) => {
     tempClassName = (<Element>e.target).className

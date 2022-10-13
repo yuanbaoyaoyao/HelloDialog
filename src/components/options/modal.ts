@@ -1,5 +1,7 @@
+import { backgroundOptions } from './common'
+
 export interface ModalOptions {
-    background?: string | null,
+    background?: string | backgroundOptions | null,
     position?: string,
     timer?: number | null,
     loading?: boolean,

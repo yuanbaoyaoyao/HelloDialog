@@ -1,33 +1,21 @@
-import { backgroundOptions } from '../options/commonOptions'
+import { backgroundOptions } from '../options/common'
 import { BackdropOptions } from '../options/backdrop'
+import { getNode } from '../../utils'
+import CLASS_NAMES from '../classNames'
+import { triggerBackground } from './common'
 
-export const triggerBackdrop = (outermostContainer: HTMLElement, backdropContainer: HTMLElement, options: BackdropOptions): void => {
-    console.log("triggerBackdropOptions:", options)
-    console.log("1")
+const { OUTERMOST, BACKDROP } = CLASS_NAMES;
+
+export const triggerBackdrop = (options: BackdropOptions): void => {
+    const outermostContainer: HTMLElement = getNode(OUTERMOST)
+    const backdropContainer: HTMLElement = getNode(BACKDROP)
     if (options.closeModal) {
         backdropContainer.addEventListener('click', () => {
             document.body.removeChild(outermostContainer)
         })
     }
     if (options.background instanceof Object) {
-        const tempBackgroundOptions: backgroundOptions = Object.assign({}, options.background)
-        if (tempBackgroundOptions.color != null) {
-            backdropContainer.style.backgroundColor = tempBackgroundOptions.color
-        }
-        if (tempBackgroundOptions.picUrl != null) {
-            backdropContainer.style.backgroundImage = 'url(' + tempBackgroundOptions.picUrl + ')'
-        }
-        if (tempBackgroundOptions.picRepeat != null) {
-            backdropContainer.style.backgroundRepeat = tempBackgroundOptions.picRepeat
-        }
-        if (tempBackgroundOptions.picSize != null) {
-
-            backdropContainer.style.backgroundSize = tempBackgroundOptions.picSize
-        }
-        if (tempBackgroundOptions.picPosition != null) {
-            backdropContainer.style.backgroundPosition = tempBackgroundOptions.picPosition
-        }
-
+        triggerBackground(backdropContainer, options.background)
     }
 }
 

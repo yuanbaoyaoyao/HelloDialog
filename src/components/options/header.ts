@@ -1,5 +1,7 @@
+import { backgroundOptions } from './common'
+
 export interface HeaderOptions {
-    background?: boolean | null,
+    background: string | backgroundOptions | null | null,
     touch?: boolean,
     enableFullScreen?: boolean,
     titleLayout?: string,
