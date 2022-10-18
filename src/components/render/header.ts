@@ -1,7 +1,8 @@
-import CLASS_NAMES from '../classNames'
 import { HeaderOptions } from '../options/header'
+import triggerHeader from '../triggers/header'
 
-const renderHeader = (options: object | string): void => {
+const renderHeader = (options: HeaderOptions): void => {
+    triggerHeader(options)
 }
 
 export default renderHeader

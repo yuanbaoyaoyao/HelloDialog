@@ -1,13 +1,9 @@
 
 import { ContentOptions } from '../options/content'
-import { getNode } from '../../utils/domUtils'
-import CLASS_NAMES from '../classNames'
+import triggerContent from '../triggers/content'
 
-const { CONTENT } = CLASS_NAMES;
-
-const renderContent = (options: string | object): void => {
-    const contentContainer: Node = getNode(CONTENT)
-    // contentContainer.textContent = <string>options.content.text
+const renderContent = (options: ContentOptions): void => {
+    triggerContent(options)
 }
 
 export default renderContent

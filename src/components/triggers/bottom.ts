@@ -1,13 +1,13 @@
 import { getNode } from '../../utils/domUtils'
 import CLASS_NAMES from '../classNames'
 import { BottomOptions } from '../options/bottom';
+import { ButtonOptions, HoverOptions } from '../options/common';
 import { triggerBackground, triggerClick } from './common';
 
 const { BOTTOM } = CLASS_NAMES;
 
 //设置hover style
 export const triggerBottom = (options: BottomOptions): void => {
-    console.log("triggerBottomOptions:", options)
     const bottomContainer: HTMLElement = getNode(BOTTOM)
     const defaultButtonContainer: HTMLElement = document.createElement('button')
     if (options.background != null) {
@@ -29,17 +29,45 @@ export const triggerBottom = (options: BottomOptions): void => {
         } else if (Array.isArray(options.button)) {
             bottomContainer.innerHTML = ''
             bottomContainer.appendChild(defaultButtonContainer)
-            defaultButtonContainer.textContent = options.button[0]
-            triggerClick(defaultButtonContainer, options.button[0])
+            const firstButton: ButtonOptions | string = options.button[0]
+            if (typeof (firstButton) == 'string') {
+                defaultButtonContainer.textContent = firstButton
+            } else if (typeof (options.button[0]) == 'object') {
+                let hoverOptions = <HoverOptions>Object.assign({}, options.button[0].hover)
+                defaultButtonContainer.textContent = firstButton.text
+                triggerHover(defaultButtonContainer, hoverOptions)
+            }
+            triggerClick(defaultButtonContainer, firstButton)
             if (options.button.length > 1) {
                 for (let i = 1; i < options.button.length; i++) {
                     const newButtonContainer: HTMLElement = document.createElement('button')
-                    newButtonContainer.textContent = options.button[i]
+                    if (typeof (options.button[i]) == 'string') {
+                        newButtonContainer.textContent = options.button[i] as string
+                    } else if (typeof (options.button[i]) == 'object') {
+                        let buttonOptions = <ButtonOptions>Object.assign({}, options.button[i])
+                        newButtonContainer.textContent = buttonOptions.text
+                        if (buttonOptions.hover != null) {
+                            triggerHover(newButtonContainer, buttonOptions.hover)
+                        }
+                    }
                     bottomContainer.prepend(newButtonContainer)
                     triggerClick(newButtonContainer, options.button[i])
                 }
             }
         }
+    }
+}
+
+const triggerHover = (container: HTMLElement, options: HoverOptions) => {
+    container.onmouseover = () => {
+        container.style.color = options.color ? options.color : ''
+        container.style.backgroundColor = options.backgroundColor ? options.backgroundColor : ''
+        container.style.boxShadow = options.boxShadow ? options.boxShadow : ''
+    }
+    container.onmouseout = () => {
+        container.style.color = ''
+        container.style.backgroundColor = ''
+        container.style.boxShadow = ''
     }
 }
 

@@ -72,5 +72,3 @@ export let actionPromiseState: ActionPromiseState = {
     resolve: null,
     reject: null
 }
-
-export let isModalClosed: boolean = false

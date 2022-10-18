@@ -1,11 +1,14 @@
-import { backgroundOptions } from './common'
-
+import { BackgroundOptions, ButtonOptions, HoverOptions } from './common'
 export interface HeaderOptions {
-    background: string | backgroundOptions | null | null,
-    touch?: boolean,
-    enableFullScreen?: boolean,
-    titleLayout?: string,
-    enableMove?: boolean,
+    background: string | BackgroundOptions | null | null
+    touch?: boolean
+    enableFullScreen?: boolean
+    titleLayout?: string
+    enableMove?: boolean
+    buttonHover?: {
+        fullScreenButton: HoverOptions | null
+        closeModalButton: HoverOptions | null
+    } | null
 }
 
 export const defaultHeaderOptions: HeaderOptions = {
@@ -14,6 +17,7 @@ export const defaultHeaderOptions: HeaderOptions = {
     enableFullScreen: false,
     titleLayout: 'center',
     enableMove: false,
+    buttonHover: null
 }
 
 export const getHeaderOptions = (options: object | string): HeaderOptions => {

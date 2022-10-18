@@ -8,8 +8,31 @@ import Hello from './helloDialog'
 setTimeout(function () {
   Hello({
     bottom: {
-      button: ['好的', '不', 'zzz', '3'],
-    }
+      button: [{
+        text: '123', hover: {
+          color: 'blue',
+          backgroundColor: 'yellow',
+        }
+      }, {
+        text: '是的', hover: {
+          color: 'green'
+        }
+      }],
+    },
+    // content: {
+    //   text: '123123',
+    //   background: {
+    //     picUrl: 'http://t15.baidu.com/it/u=4291421941,3170596813&fm=224&app=112&f=JPEG?w=500&h=500',
+    //     color: "blue",
+    //     picRepeat: 'repeat-x',
+    //     picSize: '30',
+    //     picPosition: 'left',
+    //   },
+    //   touch: true,
+    //   layout: 'left',
+    //   type: 'text',
+    //   loading: true,
+    // }
   }).then((res => {
     alert("yes")
   }))

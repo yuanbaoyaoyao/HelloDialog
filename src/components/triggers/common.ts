@@ -1,10 +1,9 @@
-import { BackdropOptions } from "../options/backdrop"
-import { backgroundOptions } from "../options/common"
+import { BackgroundOptions, ButtonOptions } from "../options/common"
 import { actionPromiseState } from '../../store'
 
-export const triggerBackground = (container: HTMLElement, options: backgroundOptions | string) => {
+export const triggerBackground = (container: HTMLElement, options: BackgroundOptions | string) => {
     if (typeof (options) == 'object') {
-        const finalBackgroundOptions: backgroundOptions = Object.assign({}, options)
+        const finalBackgroundOptions: BackgroundOptions = Object.assign({}, options)
         if (finalBackgroundOptions.color != null) {
             container.style.backgroundColor = finalBackgroundOptions.color
         }
@@ -25,8 +24,16 @@ export const triggerBackground = (container: HTMLElement, options: backgroundOpt
     }
 }
 
-export const triggerClick = (container: HTMLElement, value: string) => {
+//添加loading
+export const triggerClick = (container: HTMLElement, value: string | ButtonOptions) => {
     container.onclick = () => {
-        actionPromiseState.resolve(value)
+        if (typeof (value) == 'string') {
+            actionPromiseState.resolve(value)
+        } else {
+            actionPromiseState.resolve(value.text)
+        }
+        // if(isLoading){
+        //     container
+        // }
     }
 }

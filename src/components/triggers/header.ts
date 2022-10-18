@@ -1,12 +1,14 @@
 import { getNode } from '../../utils/domUtils'
 import CLASS_NAMES from '../classNames'
-import  {stretchState} from '../../store'
+import { stretchState } from '../../store'
+import { HeaderOptions } from '../options/header'
 
 const { HEADER, MODAL, FULL_SCREEN_BUTTON } = CLASS_NAMES
 let modalContainer: HTMLElement
 let headerContainer: HTMLElement
 
-export const triggerHeader = (): void => {
+export const triggerHeader = (options: HeaderOptions): void => {
+    console.log("headerOptions:", options)
     modalContainer = getNode(MODAL)
     headerContainer = getNode(HEADER)
     const fullScreenButton: HTMLElement = getNode(FULL_SCREEN_BUTTON)

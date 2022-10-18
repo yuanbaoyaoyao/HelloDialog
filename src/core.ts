@@ -1,6 +1,6 @@
 import renderDom from './components/render'
 import { HelloOptions, getOptions } from './components/options'
-import { actionPromiseState, isModalClosed } from './store'
+import { actionPromiseState } from './store'
 
 export type HelloArgs = Partial<HelloOptions>
 

@@ -1,8 +1,8 @@
-import { backgroundOptions } from './common'
+import { BackgroundOptions } from './common'
 
 export interface ContentOptions {
     text?: string | null,
-    background?: string | backgroundOptions | null,
+    background?: string | BackgroundOptions | null,
     touch?: boolean | null,
     layout?: string,
     type?: string,

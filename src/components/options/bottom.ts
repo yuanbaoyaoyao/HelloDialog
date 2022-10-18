@@ -1,7 +1,7 @@
-import { backgroundOptions } from './common'
+import { BackgroundOptions, ButtonOptions } from './common'
 export interface BottomOptions {
-    background?: string | backgroundOptions | null
-    button?: string | Array<string> | Object | null
+    background?: string | BackgroundOptions | null
+    button?: string | Array<string> | ButtonOptions | Array<ButtonOptions> | null
     touch?: boolean | null
     layout?: string
 }
@@ -23,7 +23,6 @@ export const getBottomOptions = (options: object): BottomOptions => {
             finalOptions[item] = tempOptions[item]
         }
     })
-
     if (options == undefined) {
         return defaultBottomOptions
     }
