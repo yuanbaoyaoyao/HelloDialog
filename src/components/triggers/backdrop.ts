@@ -1,4 +1,3 @@
-import { backgroundOptions } from '../options/common'
 import { BackdropOptions } from '../options/backdrop'
 import { getNode } from '../../utils'
 import CLASS_NAMES from '../classNames'
@@ -14,7 +13,7 @@ export const triggerBackdrop = (options: BackdropOptions): void => {
             document.body.removeChild(outermostContainer)
         })
     }
-    if (options.background instanceof Object) {
+    if (options.background != null) {
         triggerBackground(backdropContainer, options.background)
     }
 }

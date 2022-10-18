@@ -27,8 +27,8 @@ export const CLASS_NAMES: ClassNameList = addPrefix({
     CLOSE_BUTTON: 'close-button',
     CONTENT: 'content',
     BOTTOM: 'bottom',
-    CONFIRM_BUTTON: 'confirm-button',
-    CANCEL_BUTTON: 'cancel-button'
+    // CONFIRM_BUTTON: 'confirm-button',
+    // CANCEL_BUTTON: 'cancel-button'
 })
 
 export default CLASS_NAMES

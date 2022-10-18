@@ -7,27 +7,12 @@ import Hello from './helloDialog'
 
 setTimeout(function () {
   Hello({
-    content: {
-      // background: {
-      //   color: '123',
-      //   picUrl: '123'
-      // },
-      // touch: true,
-      // layout: 'left',
-      type: 'input'
-    },
-    border: {
-      enable: true,
-      selected: ['top', 'bottom']
+    bottom: {
+      button: ['好的', '不', 'zzz', '3'],
     }
-    // backdrop: {
-    //   closeModal: false,
-    //   background: {
-    //     picUrl: 'https://img0.baidu.com/it/u=2913413499,2575831010&fm=253&fmt=auto&app=138&f=JPEG?w=640&h=256',
-    //     picSize: '10%'
-    //   }
-    // }
-  })
+  }).then((res => {
+    alert("yes")
+  }))
 }, 500)
 </script>
 

@@ -1,4 +1,41 @@
-export let globalState = {
+export interface ActionPromiseState {
+    resolve?: any
+    reject?: any
+}
+export interface StretchState {
+    isFullScreen: boolean
+    beforeFullScreenMarginBottom: number
+    beforeFullScreenMarginRight: number
+
+    lastMarginRight: number
+    lastMarginBottom: number
+    firstDomLeft: number
+    firstDomTop: number
+    firstDomWidth: number
+    firstDomHeight: number
+
+    tempDomWidth: number
+    tempDomHeight: number
+
+    tempMarginRight: number
+    tempMarginBottom: number
+
+    tempMoveX: number
+    tempMoveY: number
+
+    stretchDistanceX: number
+    stretchDistanceY: number
+    firstStretchDistanceX: number
+    firstStretchDistanceY: number
+    reachHeightRange: number
+    reachWidthRange: number
+    heightRange: number
+    widthRange: number
+
+    topStretchClientY: number
+}
+
+export let stretchState: StretchState = {
     isFullScreen: false,
     beforeFullScreenMarginBottom: 0,
     beforeFullScreenMarginRight: 0,
@@ -31,4 +68,9 @@ export let globalState = {
     topStretchClientY: 0
 }
 
-export default globalState
+export let actionPromiseState: ActionPromiseState = {
+    resolve: null,
+    reject: null
+}
+
+export let isModalClosed: boolean = false

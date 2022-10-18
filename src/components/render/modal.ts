@@ -2,7 +2,7 @@ import { border, bottom, content, header, modal, outermost } from "../dom";
 import { ModalOptions } from '../options/modal'
 import { getNode } from '../../utils/domUtils'
 import CLASS_NAMES from '../classNames'
-import globalState from '../../store'
+import  {stretchState} from '../../store'
 
 const { MODAL, OUTERMOST } = CLASS_NAMES;
 
@@ -19,10 +19,10 @@ const renderModal = (options: ModalOptions): void => {
 }
 
 const initState = (modalContainer: HTMLElement): void => {
-    globalState.firstDomLeft = modalContainer.getBoundingClientRect().left;
-    globalState.firstDomTop = modalContainer.getBoundingClientRect().top;
-    globalState.firstDomWidth = modalContainer.getBoundingClientRect().width;
-    globalState.firstDomHeight = modalContainer.getBoundingClientRect().height;
+    stretchState.firstDomLeft = modalContainer.getBoundingClientRect().left;
+    stretchState.firstDomTop = modalContainer.getBoundingClientRect().top;
+    stretchState.firstDomWidth = modalContainer.getBoundingClientRect().width;
+    stretchState.firstDomHeight = modalContainer.getBoundingClientRect().height;
 }
 
 export default renderModal
