@@ -50,20 +50,26 @@
     .hello-header {
         padding: 5px;
         font-size: large;
-        display: flex;
-        justify-content: space-between;
-        cursor: move;
+        position: relative;
+        height: 20px;
 
         p {
             margin: 0;
+            position: absolute;
+            width: 100%;
+            display: flex;
+        }
+        p:after{
+            content: '';
+            width: 5px;
         }
 
         .hello-close-button {
             border: none;
             background-color: white;
-            margin-right: 10px;
-            position: relative;
-            top: -14px;
+            position: absolute;
+            top: 6px;
+            right: 10px;
 
             &::before {
                 @include forkBody();
@@ -80,10 +86,12 @@
             border: 1px solid black;
             border-radius: 2px;
             background-color: white;
+            position: absolute;
+            right: 30px;
+            top: 8px;
             height: 15px;
             width: 15px;
             cursor: pointer;
-            margin-right: 10px;
         }
     }
 

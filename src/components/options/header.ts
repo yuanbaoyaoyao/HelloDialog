@@ -1,6 +1,6 @@
-import { BackgroundOptions, ButtonOptions, HoverOptions } from './common'
+import { BackgroundOptions, HoverOptions } from './common'
 export interface HeaderOptions {
-    background: string | BackgroundOptions | null | null
+    background?: string | BackgroundOptions | null
     touch?: boolean
     enableFullScreen?: boolean
     titleLayout?: string

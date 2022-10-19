@@ -2,8 +2,9 @@ import { getNode } from '../../utils/domUtils'
 import CLASS_NAMES from '../classNames'
 import { stretchState } from '../../store'
 import { HeaderOptions } from '../options/header'
+import { triggerBackground, triggerClick } from './common';
 
-const { HEADER, MODAL, FULL_SCREEN_BUTTON } = CLASS_NAMES
+const { HEADER, HEADER_TITLE, MODAL, FULL_SCREEN_BUTTON } = CLASS_NAMES
 let modalContainer: HTMLElement
 let headerContainer: HTMLElement
 
@@ -11,6 +12,16 @@ export const triggerHeader = (options: HeaderOptions): void => {
     console.log("headerOptions:", options)
     modalContainer = getNode(MODAL)
     headerContainer = getNode(HEADER)
+    if (options.background != null) {
+        triggerBackground(headerContainer, options.background)
+    }
+    if (typeof (options.titleLayout) == 'string') {
+        const titleContainer: HTMLElement = getNode(HEADER_TITLE)
+        const optionLayout: string = options.titleLayout
+        if (optionLayout == 'center') {
+            // titleContainer.setProperty("style", "", "");
+        }
+    }
     const fullScreenButton: HTMLElement = getNode(FULL_SCREEN_BUTTON)
     fullScreenButton.onmousedown = setFullScreen
     headerContainer.onmousedown = setMove

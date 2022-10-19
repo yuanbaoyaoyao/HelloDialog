@@ -9,7 +9,8 @@ setTimeout(function () {
   Hello({
     bottom: {
       button: [{
-        text: '123', hover: {
+        text: '123',
+        hover: {
           color: 'blue',
           backgroundColor: 'yellow',
         }
@@ -19,6 +20,23 @@ setTimeout(function () {
         }
       }],
     },
+    header: {
+      background: null,
+      touch: true,
+      enableFullScreen: true,
+      titleLayout: 'center',
+      enableMove: true,
+      buttonHover: {
+        fullScreenButton: {
+          color: 'blue',
+          backgroundColor: 'yellow',
+        },
+        closeModalButton: {
+          color: 'blue',
+          backgroundColor: 'yellow',
+        },
+      }
+    }
     // content: {
     //   text: '123123',
     //   background: {
