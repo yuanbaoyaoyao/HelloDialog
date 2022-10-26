@@ -23,7 +23,7 @@ export const triggerContent = (options: ContentOptions): void => {
         if (options.text != undefined) {
             if (options.touch) {
                 contentContainer.style.cursor = 'pointer'
-                triggerClick(contentContainer, options.text as string)
+                triggerClick(contentContainer, 'content')
             }
             contentContainer.textContent = options.text
         } else {

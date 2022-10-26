@@ -3,6 +3,7 @@ export interface HeaderOptions {
     background?: string | BackgroundOptions | null
     touch?: boolean
     enableFullScreen?: boolean
+    enableCloseModal?: boolean
     titleLayout?: string
     enableMove?: boolean
     buttonHover?: {
@@ -15,6 +16,7 @@ export const defaultHeaderOptions: HeaderOptions = {
     background: null,
     touch: false,
     enableFullScreen: false,
+    enableCloseModal: true,
     titleLayout: 'center',
     enableMove: false,
     buttonHover: null

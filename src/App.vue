@@ -8,22 +8,31 @@ import Hello from './helloDialog'
 setTimeout(function () {
   Hello({
     bottom: {
-      button: [{
-        text: '123',
-        hover: {
-          color: 'blue',
-          backgroundColor: 'yellow',
+      button: [
+        {
+          text: '123',
+          hover: {
+            color: 'blue',
+            backgroundColor: 'yellow',
+          }
+        },
+        {
+          text: '是的', hover: {
+            color: 'green'
+          }
+        },
+        {
+          text: '你好', hover: {
+            color: 'green'
+          }
         }
-      }, {
-        text: '是的', hover: {
-          color: 'green'
-        }
-      }],
+      ],
     },
     header: {
       background: null,
       touch: true,
       enableFullScreen: true,
+      enableCloseModal: false,
       titleLayout: 'center',
       enableMove: true,
       buttonHover: {
@@ -52,7 +61,7 @@ setTimeout(function () {
     //   loading: true,
     // }
   }).then((res => {
-    alert("yes")
+    alert(res)
   }))
 }, 500)
 </script>
