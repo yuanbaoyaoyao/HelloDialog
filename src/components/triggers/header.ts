@@ -2,10 +2,10 @@ import { getNode } from '../../utils/domUtils'
 import CLASS_NAMES from '../classNames'
 import { stretchState } from '../../store'
 import { HeaderOptions } from '../options/header'
-import { triggerBackground, triggerClick } from './common';
+import { triggerBackground, triggerClick } from './common'
 import { HoverOptions } from '../options/common'
 
-const { HEADER, HEADER_TITLE, MODAL, FULL_SCREEN_BUTTON, CLOSE_BUTTON } = CLASS_NAMES
+const { HEADER, HEADER_TITLE, MODAL, FULL_SCREEN_BUTTON, CLOSE_BUTTON, OUTERMOST } = CLASS_NAMES
 let modalContainer: HTMLElement
 let headerContainer: HTMLElement
 
@@ -26,7 +26,7 @@ export const triggerHeader = (options: HeaderOptions): void => {
         const fullScreenButton: HTMLElement = getNode(FULL_SCREEN_BUTTON)
         fullScreenButton.onmousedown = setFullScreen
     }
-    if (!options.enableCloseModal) {
+    if (options.enableCloseModal) {
         const closeModalButton: HTMLElement = getNode(CLOSE_BUTTON)
         closeModalButton.onmousedown = setModalClose
     }
@@ -50,7 +50,11 @@ export const triggerHeader = (options: HeaderOptions): void => {
 }
 
 const setModalClose = (): void => {
-    document.body.addEventListener
+    const outermostContainer: HTMLElement = getNode(OUTERMOST)
+    const closeModalButton: HTMLElement = getNode(CLOSE_BUTTON)
+    closeModalButton.addEventListener('click', () => {
+        document.body.removeChild(outermostContainer)
+    })
 }
 
 const setFullScreen = (): void => {

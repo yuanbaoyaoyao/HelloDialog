@@ -1,10 +1,11 @@
-import { border, bottom, content, header, modal, outermost } from "../dom";
+import { border, bottom, content, header, modal, outermost } from "../dom"
 import { ModalOptions } from '../options/modal'
 import { getNode } from '../../utils/domUtils'
 import CLASS_NAMES from '../classNames'
-import  {stretchState} from '../../store'
+import { stretchState } from '../../store'
+import triggerModal from "../triggers/modal"
 
-const { MODAL, OUTERMOST } = CLASS_NAMES;
+const { MODAL, OUTERMOST } = CLASS_NAMES
 
 const renderModal = (options: ModalOptions): void => {
     document.body.appendChild(outermost)
@@ -16,6 +17,7 @@ const renderModal = (options: ModalOptions): void => {
     modalContainer.appendChild(content)
     modalContainer.appendChild(bottom)
     initState(modalContainer)
+    triggerModal(options)
 }
 
 const initState = (modalContainer: HTMLElement): void => {

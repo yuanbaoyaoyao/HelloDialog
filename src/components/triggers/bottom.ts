@@ -1,12 +1,11 @@
 import { getNode } from '../../utils/domUtils'
 import CLASS_NAMES from '../classNames'
-import { BottomOptions } from '../options/bottom';
-import { ButtonOptions, HoverOptions } from '../options/common';
-import { triggerBackground, triggerClick } from './common';
+import { BottomOptions } from '../options/bottom'
+import { ButtonOptions, HoverOptions } from '../options/common'
+import { triggerBackground, triggerClick } from './common'
 
-const { BOTTOM } = CLASS_NAMES;
+const { BOTTOM } = CLASS_NAMES
 
-//设置hover style
 export const triggerBottom = (options: BottomOptions): void => {
     const bottomContainer: HTMLElement = getNode(BOTTOM)
     const defaultButtonContainer: HTMLElement = document.createElement('button')

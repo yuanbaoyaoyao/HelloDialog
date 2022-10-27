@@ -1,7 +1,6 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import { SET_BLOCK_TRACKING } from '@vue/compiler-core';
 import HelloWorld from './components/HelloWorld.vue'
 import Hello from './helloDialog'
 
@@ -28,24 +27,37 @@ setTimeout(function () {
         }
       ],
     },
-    header: {
-      background: null,
-      touch: true,
-      enableFullScreen: true,
-      enableCloseModal: false,
-      titleLayout: 'center',
-      enableMove: true,
-      buttonHover: {
-        fullScreenButton: {
-          color: 'blue',
-          backgroundColor: 'yellow',
-        },
-        closeModalButton: {
-          color: 'blue',
-          backgroundColor: 'yellow',
-        },
-      }
+    modal: {
+      background: {
+        picUrl: "https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fblog%2F202102%2F26%2F20210226073347_50f94.thumb.1000_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1669429609&t=169d2895e4f900ed439fffa867d678d5",
+        // color: '#52f9e0',
+        picRepeat: 'repeat-y',
+        picSize: '30px',
+        picPosition: 'right'
+      },
+      position: 'right',
+      // timer: 3000,
+      loading: true,
+      appendToBody: true,
     }
+    // header: {
+    //   background: null,
+    //   touch: false,
+    //   enableFullScreen: true,
+    //   // enableCloseModal: true,
+    //   titleLayout: 'center',
+    //   enableMove: true,
+    //   buttonHover: {
+    //     fullScreenButton: {
+    //       color: 'blue',
+    //       backgroundColor: 'yellow',
+    //     },
+    //     closeModalButton: {
+    //       color: 'blue',
+    //       backgroundColor: 'yellow',
+    //     },
+    //   }
+    // }
     // content: {
     //   text: '123123',
     //   background: {
