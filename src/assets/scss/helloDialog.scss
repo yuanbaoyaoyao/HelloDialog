@@ -122,7 +122,7 @@
         width: 5px;
         height: 100%;
         position: absolute;
-        background-color: blue;
+        // background-color: blue;
         cursor: e-resize;
         right: 0;
     }
@@ -131,7 +131,7 @@
         width: 100%;
         height: 5px;
         position: absolute;
-        background-color: green;
+        // background-color: green;
         cursor: n-resize;
         top: 0;
     }
@@ -140,7 +140,7 @@
         width: 100%;
         height: 5px;
         position: absolute;
-        background-color: yellow;
+        // background-color: yellow;
         cursor: n-resize;
         bottom: 0;
     }
@@ -149,7 +149,7 @@
         width: 5px;
         height: 100%;
         position: absolute;
-        background-color: rgb(40, 164, 133);
+        // background-color: rgb(40, 164, 133);
         cursor: e-resize;
         left: 0;
     }
@@ -158,7 +158,7 @@
         width: 5px;
         height: 5px;
         position: absolute;
-        background-color: rgb(64, 110, 26);
+        // background-color: rgb(64, 110, 26);
         cursor: ne-resize;
         z-index: 10000000000;
         right: 0;
@@ -169,7 +169,7 @@
         width: 5px;
         height: 5px;
         position: absolute;
-        background-color: rgb(144, 54, 133);
+        // background-color: rgb(144, 54, 133);
         cursor: nw-resize;
         z-index: 10000000000;
         left: 0;
@@ -180,7 +180,7 @@
         width: 5px;
         height: 5px;
         position: absolute;
-        background-color: rgb(13, 15, 10);
+        // background-color: rgb(13, 15, 10);
         cursor: se-resize;
         z-index: 10000000000;
         right: 0;
@@ -191,7 +191,7 @@
         width: 5px;
         height: 5px;
         position: absolute;
-        background-color: rgb(78, 64, 49);
+        // background-color: rgb(78, 64, 49);
         cursor: ne-resize;
         z-index: 10000000000;
         left: 0;

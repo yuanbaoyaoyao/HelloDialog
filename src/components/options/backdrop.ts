@@ -1,8 +1,8 @@
-import { backgroundOptions, defaultBackgroundOptions } from './common'
+import { BackgroundOptions, defaultBackgroundOptions } from './common'
 
 export interface BackdropOptions {
     closeModal?: boolean,
-    background?: string | backgroundOptions | null
+    background?: string | BackgroundOptions | null
 }
 
 export const defaultBackdropOptions: BackdropOptions = {

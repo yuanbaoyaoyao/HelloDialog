@@ -19,15 +19,22 @@ export const CLASS_NAMES: ClassNameList = addPrefix({
     BOTTOM_RIGHT_STRETCH: 'bottom-right-stretch',
     BOTTOM_LEFT_STRETCH: 'bottom-left-stretch',
 
-    OUTERMOST:'outermost',
+    OUTERMOST: 'outermost',
     BACKDROP: 'backdrop',
     MODAL: 'modal',
     HEADER: 'header',
-    HEADER_TITLE:'header-title',
+    HEADER_TITLE: 'header-title',
     FULL_SCREEN_BUTTON: 'full-screen-button',
     CLOSE_BUTTON: 'close-button',
     CONTENT: 'content',
     BOTTOM: 'bottom',
+
+    ICON_CONTAINER: 'icon-container',
+    ICON_ERROR: 'icon-error',
+    ICON_INFO: 'icon-info',
+    ICON_QUESTION: 'icon-question',
+    ICON_SUCCESS: 'icon-success',
+    ICON_WARNING: 'icon-warning'
 })
 
 export default CLASS_NAMES

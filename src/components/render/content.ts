@@ -1,4 +1,3 @@
-
 import { ContentOptions } from '../options/content'
 import triggerContent from '../triggers/content'
 
