@@ -4,6 +4,7 @@ import { getBottomOptions, BottomOptions, defaultBottomOptions } from './bottom'
 import { getContentOptions, ContentOptions, defaultContentOptions } from './content'
 import { getHeaderOptions, HeaderOptions, defaultHeaderOptions } from './header'
 import { getModalOptions, ModalOptions, defaultModalOptions } from './modal'
+import { getIconOptions, IconOptions, defaultIconOptions } from './icons'
 
 export interface HelloOptions {
     backdrop: BackdropOptions,
@@ -12,6 +13,7 @@ export interface HelloOptions {
     content: ContentOptions,
     header: HeaderOptions,
     modal: ModalOptions,
+    icon: IconOptions
 }
 
 const defaultOptions: HelloOptions = {
@@ -21,6 +23,7 @@ const defaultOptions: HelloOptions = {
     content: defaultContentOptions,
     header: defaultHeaderOptions,
     modal: defaultModalOptions,
+    icon: defaultIconOptions
 }
 
 export type HelloArgs = Partial<HelloOptions>
@@ -34,7 +37,9 @@ export const getOptions = (args: HelloArgs): HelloOptions => {
     options.modal = getModalOptions(options.modal)
     options.border = getBorderOptions(options.border)
     options.backdrop = getBackdropOptions(options.backdrop)
+    options.icon = getIconOptions(options.icon)
     const helloOptions: HelloOptions = Object.assign({}, defaultOptions, options)
+    console.log("helloOptions:", helloOptions)
     return helloOptions
 }
 

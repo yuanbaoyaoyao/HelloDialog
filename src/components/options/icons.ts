@@ -1,9 +1,10 @@
 export interface IconOptions {
-    iconName?: string
+    iconName?: string | null
     alwaysAnimated?: boolean
 }
 
 export const defaultIconOptions: IconOptions = {
+    iconName: null,
     alwaysAnimated: false
 }
 

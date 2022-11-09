@@ -4,6 +4,7 @@ import renderBorder from './border'
 import renderBottom from './bottom'
 import renderContent from './content'
 import renderHeader from './header'
+import renderIcons from './icons'
 import { HelloOptions } from '../options'
 
 const renderDom = (options: HelloOptions): void => {
@@ -13,6 +14,7 @@ const renderDom = (options: HelloOptions): void => {
     renderBorder(options.border)
     renderContent(options.content)
     renderBottom(options.bottom)
+    renderIcons(options.icon)
 }
 
 export default renderDom

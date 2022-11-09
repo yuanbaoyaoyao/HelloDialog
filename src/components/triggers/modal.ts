@@ -6,7 +6,6 @@ import { ModalOptions } from '../options/modal'
 const { MODAL, OUTERMOST } = CLASS_NAMES;
 
 export const triggerModal = (options: ModalOptions): void => {
-    console.log("ModalOptions;", options)
     const modalContainer: HTMLElement = getNode(MODAL)
     if (options.background != null) {
         if (typeof (options.background) == 'object') {

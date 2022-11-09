@@ -1,3 +1,5 @@
+@import url(./icons.scss);
+
 @mixin forkBody {
     content: "";
     position: absolute;
@@ -99,7 +101,10 @@
     .hello-content {
         padding: 5px;
         display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
+        width: 100%;
     }
 
     .hello-bottom {

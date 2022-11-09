@@ -3,7 +3,8 @@ import { stringToNode } from '../../utils'
 
 export const content: Node = stringToNode(
     `
-    <div class="${CLASS_NAMES.CONTENT}">这是body
+    <div class="${CLASS_NAMES.CONTENT}">
+        <p>这是body</p>
     </div>
     `
 )

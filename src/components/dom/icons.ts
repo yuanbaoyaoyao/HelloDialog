@@ -4,6 +4,7 @@ import { stringToNode } from '../../utils'
 export const icons: Node = stringToNode(
     `
     <div class="${CLASS_NAMES.ICON_CONTAINER}">
+        <p>这是icon</p>
     </div>
     `
 )
