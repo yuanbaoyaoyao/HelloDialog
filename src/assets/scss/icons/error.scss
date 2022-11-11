@@ -1,9 +1,28 @@
 :root {}
 
 .hello-icon-error {
-    display: flex;
-    background-color: black;
-    width: 30px;
-    height: 30px;
-    margin: 0;
+    border-color: #FF4D4F;
+    border-style: solid;
+}
+
+.hello-icon-error-line-one {
+    position: absolute;
+    width: 3px;
+    height: 40px;
+    left: 29px;
+    top: 9.5px;
+    background-color: #FF4D4F;
+    transform: rotate(-45deg);
+    border-radius: 10px;
+}
+
+.hello-icon-error-line-two {
+    position: absolute;
+    width: 3px;
+    height: 40px;
+    left: 29px;
+    top: 9.5px;
+    background-color: #FF4D4F;
+    transform: rotate(45deg);
+    border-radius: 10px;
 }
