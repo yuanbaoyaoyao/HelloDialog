@@ -1,9 +1,26 @@
 :root {}
 
 .hello-icon-info {
-    display: flex;
-    background-color: black;
-    width: 30px;
-    height: 30px;
-    margin: 0;
+    border-color: #1890FF;
+    border-style: solid;
+}
+
+.hello-icon-info-dot {
+    position: absolute;
+    width: 5px;
+    left: 27px;
+    top: 14px;
+    height: 5px;
+    background-color: #1890FF;
+    border-radius: 10px;
+}
+
+.hello-icon-info-line {
+    position: absolute;
+    width: 3.5px;
+    top: 26px;
+    height: 23px;
+    left: 28px;
+    background-color: #1890FF;
+    border-radius: 10px;
 }
