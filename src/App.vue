@@ -7,7 +7,7 @@ import Hello from './helloDialog'
 setTimeout(function () {
   Hello({
     icon:{
-      iconName:'question',
+      iconName:'warning',
     },
     bottom: {
       button: [

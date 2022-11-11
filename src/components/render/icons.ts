@@ -41,7 +41,12 @@ const renderIcons = (options: IconOptions): void => {
             icon.innerHTML = iconHtml
             break;
         case 'warning':
-            icon.className = ICON_WARNING
+            iconContainer.classList.add(ICON_WARNING)
+            iconHtml = `
+            <div class="${ICON_WARNING}-dot"></div>
+            <div class="${ICON_WARNING}-line"></div>
+            `
+            icon.innerHTML = iconHtml
             break;
         default:
             break;

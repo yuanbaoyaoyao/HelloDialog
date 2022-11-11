@@ -1,9 +1,28 @@
 :root {}
 
 .hello-icon-warning {
-    display: flex;
-    background-color: black;
-    width: 30px;
-    height: 30px;
-    margin: 0;
+    border-color: #FAAD14;
+    border-style: solid;
+}
+
+.hello-icon-warning-dot {
+    position: absolute;
+    width: 4px;
+    left: 28.1px;
+    bottom: 13px;
+    height: 4px;
+    background-color: #FAAD14;
+    border-radius: 10px;
+}
+
+.hello-icon-warning-line {
+    position: absolute;
+    top: 14px;
+    left: 28px;
+    background-color: transparent;
+    width: 2px;
+    height: 0;
+    border-top: 25px solid #FAAD14;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
 }
