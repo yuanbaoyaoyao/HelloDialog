@@ -1,9 +1,15 @@
 :root {}
 
 .hello-icon-question {
-    display: flex;
-    background-color: black;
-    width: 30px;
-    height: 30px;
-    margin: 0;
+    border-color: #F28401;
+    border-style: solid;
+}
+
+.hello-icon-question-inner::after {
+    content: '?';
+    color: #F28401;
+    position: absolute;
+    left: 17px;
+    top: 18px;
+    font-size: xxx-large;
 }

@@ -34,7 +34,11 @@ const renderIcons = (options: IconOptions): void => {
             icon.innerHTML = iconHtml
             break;
         case 'question':
-            icon.className = ICON_QUESTION
+            iconContainer.classList.add(ICON_QUESTION)
+            iconHtml = `
+            <div class="${ICON_QUESTION}-inner"></div>
+            `
+            icon.innerHTML = iconHtml
             break;
         case 'warning':
             icon.className = ICON_WARNING
