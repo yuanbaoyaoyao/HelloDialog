@@ -22,6 +22,7 @@ export const getIconOptions = (options: object | string): IconOptions => {
     if (options == undefined) {
         return defaultIconOptions
     }
+    console.log("IconOptions:", finalOptions)
     return finalOptions
 }
 

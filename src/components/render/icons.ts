@@ -6,10 +6,15 @@ const { ICON_CONTAINER, ICON_ERROR, ICON_INFO, ICON_QUESTION, ICON_SUCCESS, ICON
 
 const renderIcons = (options: IconOptions): void => {
     const iconContainer: HTMLElement = getNode(ICON_CONTAINER)
-    const icon: HTMLElement = document.createElement("div")
+    let icon: HTMLElement = document.createElement("div")
     switch (options.iconName) {
         case 'success':
-            icon.className = ICON_SUCCESS
+            iconContainer.classList.add(ICON_SUCCESS)
+            const iconHtml = `
+            <div class="${ICON_SUCCESS}-short-line"></div>
+            <div class="${ICON_SUCCESS}-long-line"></div>
+            `
+            icon.innerHTML = iconHtml
             break;
         case 'error':
             icon.className = ICON_ERROR
@@ -23,12 +28,12 @@ const renderIcons = (options: IconOptions): void => {
         case 'warning':
             icon.className = ICON_WARNING
             break;
-
         default:
-            if (typeof (options.iconName) != 'undefined') {
-                iconContainer.appendChild(icon)
-            }
             break;
+    }
+    if (typeof (options.iconName) != 'undefined') {
+        iconContainer.appendChild(icon)
+        console.log("iconContainer:", iconContainer)
     }
 }
 
