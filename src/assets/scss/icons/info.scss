@@ -3,6 +3,7 @@
 .hello-icon-info {
     border-color: #1890FF;
     border-style: solid;
+    animation: animateInfo 0.5s;
 }
 
 .hello-icon-info-dot {
@@ -23,4 +24,24 @@
     left: 28px;
     background-color: #1890FF;
     border-radius: 10px;
+}
+
+
+@keyframes animateInfo {
+
+    0% {
+        transform: rotate(-45deg);
+    }
+
+    30% {
+        transform: rotate(-20deg);
+    }
+
+    60% {
+        transform: rotate(20deg);
+    }
+
+    100% {
+        transform: rotate(0);
+    }
 }
