@@ -14,6 +14,7 @@
     background-color: #FF4D4F;
     transform: rotate(-45deg);
     border-radius: 10px;
+    animation: animateLineOne 0.2s;
 }
 
 .hello-icon-error-line-two {
@@ -25,4 +26,39 @@
     background-color: #FF4D4F;
     transform: rotate(45deg);
     border-radius: 10px;
+    animation: animateLineTwo 0.4s;
+}
+
+@keyframes animateLineOne {
+    from {
+        height: 0px;
+        left: 16px;
+        top: 14px;
+    }
+
+    to {
+        height: 40px;
+        left: 29px;
+        top: 9.5px;
+    }
+}
+
+@keyframes animateLineTwo {
+    0% {
+        height: 0px;
+        left: 43px;
+        top: 16px;
+    }
+
+    50% {
+        height: 0px;
+        left: 43px;
+        top: 16px;
+    }
+
+    to {
+        height: 40px;
+        left: 29px;
+        top: 9.5px;
+    }
 }
