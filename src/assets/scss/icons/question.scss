@@ -12,10 +12,10 @@
     left: 17px;
     top: 18px;
     font-size: xxx-large;
-    animation: animateInfo 0.6s;
+    animation: animationQuestion 0.6s;
 }
 
-@keyframes animateInfo {
+@keyframes animationQuestion {
 
     0% {
         transform: rotate(0);
