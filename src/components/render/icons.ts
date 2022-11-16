@@ -12,8 +12,12 @@ const renderIcons = (options: IconOptions): void => {
         case 'success':
             iconContainer.classList.add(ICON_SUCCESS)
             iconHtml = `
-            <div class="${ICON_SUCCESS}-short-line"></div>
-            <div class="${ICON_SUCCESS}-long-line"></div>
+            <svg class="${ICON_SUCCESS}-svg" xmlns="http://www.w3.org/2000/svg" version="1.1" viewbox="0 0 400 400">
+                <polyline class="${ICON_SUCCESS}-polyline" fill="none" stroke="#52C41A" 
+                    stroke-width="24" 
+                    points="88,214 173,284 304,138"
+                    stroke-linecap="round" stroke-linejoin="round"></polyline>
+            </svg>
             `
             icon.innerHTML = iconHtml
             break;

@@ -5,27 +5,18 @@
     border-style: solid;
 }
 
-.hello-icon-success-short-line {
-    position: absolute;
-    width: 3px;
-    left: 16.6px;
-    height: 18px;
-    top: 28.15px;
-    background-color: #52C41A;
-    transform: rotate(-45deg);
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 12px;
+.hello-icon-success-svg {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: animationCheck .6s ease forwards;
 }
 
-.hello-icon-success-long-line {
-    position: absolute;
-    width: 3px;
-    left: 34px;
-    top: 13.7px;
-    height: 33px;
-    background-color: #52C41A;
-    transform: rotate(45deg);
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+@keyframes animationCheck {
+    from {
+        stroke-dashoffset: 400;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
 }
