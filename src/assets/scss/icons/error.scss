@@ -3,7 +3,6 @@
 .hello-icon-error {
     border-color: #FF4D4F;
     border-style: solid;
-    animation: animateErrorOuter 0.6s;
 }
 
 .hello-icon-error-line-one {
@@ -30,22 +29,6 @@
     animation: animateLineTwo 0.6s;
 }
 
-.hello-icon-error-line {
-    animation: animateline 0.3s 0.6s;
-}
-
-@keyframes animateline {
-    0% {
-        transform: scale(0.8);
-    }
-    80% {
-        transform: scale(1.15);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-}
 
 @keyframes animateLineOne {
     from {
@@ -84,19 +67,5 @@
         height: 40px;
         left: 29px;
         top: 9.5px;
-    }
-}
-
-@keyframes animateErrorOuter {
-    0% {
-        opacity: 0;
-    }
-
-    33% {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
     }
 }

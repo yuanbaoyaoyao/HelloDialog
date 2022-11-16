@@ -24,10 +24,8 @@ const renderIcons = (options: IconOptions): void => {
         case 'error':
             iconContainer.classList.add(ICON_ERROR)
             iconHtml = `
-            <div class="${ICON_ERROR}-line">
-                <div class="${ICON_ERROR}-line-one"></div>
-                <div class="${ICON_ERROR}-line-two"></div>
-            </div>
+            <div class="${ICON_ERROR}-line-one"></div>
+            <div class="${ICON_ERROR}-line-two"></div>
             `
             icon.innerHTML = iconHtml
             break;
