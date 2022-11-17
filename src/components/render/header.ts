@@ -10,7 +10,7 @@ const renderHeader = (options: HeaderOptions): void => {
     if (options.enableFullScreen) {
         const fullScreenButton: HTMLElement = document.createElement("button")
         fullScreenButton.className = FULL_SCREEN_BUTTON
-        headerContainer.appendChild(fullScreenButton)
+        headerContainer.prepend(fullScreenButton)
     }
     if (!options.enableCloseModal) {
         const closeModalButton: HTMLElement = document.createElement("button")

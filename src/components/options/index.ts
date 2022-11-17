@@ -16,7 +16,7 @@ export interface HelloOptions {
     icon: IconOptions
 }
 
-const defaultOptions: HelloOptions = {
+export const defaultOptions: HelloOptions = {
     backdrop: defaultBackdropOptions,
     border: defaultBorderOptions,
     bottom: defaultBottomOptions,

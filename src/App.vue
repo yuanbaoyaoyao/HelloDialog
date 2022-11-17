@@ -5,10 +5,15 @@ import HelloWorld from './components/HelloWorld.vue'
 import Hello from './helloDialog'
 
 setTimeout(function () {
+  // Hello(
+  //   'Good job!',
+  //   'You clicked the button!',
+  //   'success'
+  // )
   Hello({
-    icon:{
-      iconName:'info',
-    },
+    // icon: {
+    //   iconName: 'warning',
+    // },
     bottom: {
       button: [
         {
@@ -42,25 +47,27 @@ setTimeout(function () {
       // timer: 3000,
       loading: true,
       appendToBody: true,
+    },
+    header: {
+      background: {
+        color: 'blue'
+      },
+      touch: false,
+      enableFullScreen: true,
+      // enableCloseModal: true,
+      titleLayout: 'center',
+      enableMove: true,
+      buttonHover: {
+        fullScreenButton: {
+          color: 'blue',
+          backgroundColor: 'yellow',
+        },
+        closeModalButton: {
+          color: 'blue',
+          backgroundColor: 'yellow',
+        },
+      }
     }
-    // header: {
-    //   background: null,
-    //   touch: false,
-    //   enableFullScreen: true,
-    //   // enableCloseModal: true,
-    //   titleLayout: 'center',
-    //   enableMove: true,
-    //   buttonHover: {
-    //     fullScreenButton: {
-    //       color: 'blue',
-    //       backgroundColor: 'yellow',
-    //     },
-    //     closeModalButton: {
-    //       color: 'blue',
-    //       backgroundColor: 'yellow',
-    //     },
-    //   }
-    // }
     // content: {
     //   text: '123123',
     //   background: {
