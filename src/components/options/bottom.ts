@@ -9,7 +9,7 @@ export interface BottomOptions {
 export const defaultBottomOptions: BottomOptions = {
     background: null,
     button: null,
-    layout: 'center',
+    layout: 'right',
     touch: null,
 }
 

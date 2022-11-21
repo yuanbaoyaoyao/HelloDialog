@@ -54,6 +54,9 @@ export const triggerBottom = (options: BottomOptions): void => {
                 }
             }
         }
+    } else {
+        bottomContainer.appendChild(defaultButtonContainer)
+        defaultButtonContainer.textContent = "确定"
     }
 }
 
