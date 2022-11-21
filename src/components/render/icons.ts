@@ -1,14 +1,16 @@
 import { IconOptions } from '../options/icons'
 import CLASS_NAMES from '../classNames'
-import { getNode } from '../../utils'
+import { getNode, stringToNode } from '../../utils'
 import { icons } from '../dom/icons'
 
 const { CONTENT, ICON_CONTAINER, ICON_ERROR, ICON_INFO, ICON_QUESTION, ICON_SUCCESS, ICON_WARNING } = CLASS_NAMES
 
 const renderIcons = (options: IconOptions): void => {
     const modalContainer: HTMLElement = getNode(CONTENT)
+
     if (typeof (options.iconName) != 'undefined' && options.iconName != null) {
-        modalContainer.prepend(icons)
+        const iconsNode = stringToNode(icons)
+        modalContainer.prepend(iconsNode)
         const iconContainer: HTMLElement = getNode(ICON_CONTAINER)
         let icon: HTMLElement = document.createElement("div")
         let iconHtml: string

@@ -1,9 +1,7 @@
 import CLASS_NAMES from '../classNames';
-import { stringToNode } from '../../utils'
 
-export const modal: Node = stringToNode(
+export const modal: String = 
     `
     <div class="${CLASS_NAMES.MODAL}">
     </div>
     `
-)

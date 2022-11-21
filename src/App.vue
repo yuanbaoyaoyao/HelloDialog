@@ -17,7 +17,7 @@ setTimeout(function () {
     bottom: {
       button: [
         {
-          text: '123',
+          text: '222',
           hover: {
             color: 'blue',
             backgroundColor: 'yellow',
