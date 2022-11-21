@@ -57,6 +57,9 @@ export const triggerBottom = (options: BottomOptions): void => {
     } else {
         bottomContainer.appendChild(defaultButtonContainer)
         defaultButtonContainer.textContent = "确定"
+        defaultButtonContainer.style.backgroundColor = "#1677FF"
+        defaultButtonContainer.style.color = "white"
+        defaultButtonContainer.style.borderColor = 'inherit'
     }
 }
 

@@ -1,9 +1,9 @@
 export interface BackgroundOptions {
-    picUrl?: string | null
-    color?: string | null
-    picRepeat?: string | null
-    picSize?: string | null
-    picPosition?: string | null
+    picUrl?: String | null
+    color?: String | null
+    picRepeat?: String | null
+    picSize?: String | null
+    picPosition?: String | null
 }
 
 export const defaultBackgroundOptions: BackgroundOptions = {
@@ -15,14 +15,19 @@ export const defaultBackgroundOptions: BackgroundOptions = {
 }
 
 export interface ButtonOptions {
-    text: string
+    text: String
+    size: String
+    type: String
+    disable: Boolean
+    loading: Boolean
+    icon: String | null
     hover?: HoverOptions | null
 }
 
 export interface HoverOptions {
-    color?: string | null
-    backgroundColor?: string | null
-    boxShadow?: string | null
+    color?: String | null
+    backgroundColor?: String | null
+    boxShadow?: String | null
 }
 
 export const defaultHoverOptions: HoverOptions = {
@@ -33,5 +38,10 @@ export const defaultHoverOptions: HoverOptions = {
 
 export const defaultButtonOptions: ButtonOptions = {
     text: '确认',
-    hover: null
+    hover: null,
+    size: 'middle',
+    type: "default",
+    disable: false,
+    loading: false,
+    icon: null
 }
