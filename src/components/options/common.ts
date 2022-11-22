@@ -57,6 +57,7 @@ export interface CommonAttributesOptions {
     enableMove?: boolean
     showCloseModalButton: boolean
     enableFullScreen?: boolean
+    enableBorderStretch?: boolean
     background?: BackgroundOptions
     timer?: number | null
 }

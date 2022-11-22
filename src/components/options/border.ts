@@ -1,11 +1,11 @@
 export interface BorderOptions {
-    enable?: boolean,
-    selected?: string | Array<string> | null
+    enableStretch?: boolean,
+    selectedBorders?: string | Array<string> | null
 }
 
 export const defaultBorderOptions: BorderOptions = {
-    enable: true,
-    selected: null,
+    enableStretch: true,
+    selectedBorders: null,
 }
 
 export const getBorderOptions = (options: object): BorderOptions => {

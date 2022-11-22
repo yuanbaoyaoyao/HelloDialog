@@ -1,6 +1,6 @@
 import { getNode } from '../../utils/domUtils'
 import CLASS_NAMES from '../classNames'
-import  {stretchState} from '../../store'
+import { stretchState } from '../../store'
 import { BorderOptions } from '../options/border';
 
 const { CONFIRM_BUTTON, HEADER, MODAL, RIGHT_STRETCH, TOP_STRETCH, BOTTOM_STRETCH, LEFT_STRETCH, TOP_RIGHT_STRETCH, TOP_LEFT_STRETCH, BOTTOM_RIGHT_STRETCH, BOTTOM_LEFT_STRETCH } = CLASS_NAMES;
@@ -25,12 +25,12 @@ export const triggerBorder = (options: BorderOptions): void => {
     bottomRightStretchContainer = getNode(BOTTOM_RIGHT_STRETCH)
     bottomLeftStretchContainer = getNode(BOTTOM_LEFT_STRETCH)
 
-    if (options.enable) {
-        if (typeof (options.selected) == 'string') {
-            handleMousedown(options.selected)
-        } else if (Array.isArray(options.selected)) {
-            options.selected.filter(item => handleMousedown(item))
-        } else if (options.selected == null) {
+    if (options.enableStretch) {
+        if (typeof (options.selectedBorders) == 'string') {
+            handleMousedown(options.selectedBorders)
+        } else if (Array.isArray(options.selectedBorders)) {
+            options.selectedBorders.filter(item => handleMousedown(item))
+        } else if (options.selectedBorders == null) {
             rightStretchContainer.onmousedown = borderStretch
             topStretchContainer.onmousedown = borderStretch
             bottomStretchContainer.onmousedown = borderStretch

@@ -4,16 +4,12 @@ export interface ModalOptions {
     background?: string | BackgroundOptions | null,
     position?: string,
     timer?: number | null,
-    loading?: boolean,
-    appendToBody?: boolean,
 }
 
 export const defaultModalOptions: ModalOptions = {
     background: null,
     position: 'center',
     timer: null,
-    loading: false,
-    appendToBody: false,
 }
 
 export const getModalOptions = (options: object): ModalOptions => {

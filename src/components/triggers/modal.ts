@@ -26,13 +26,6 @@ export const triggerModal = (options: ModalOptions): void => {
             document.body.removeChild(outermostContainer)
         }, options.timer)
     }
-    if (options.loading) {
-        //添加一个loading动效
-    }
-    if (options.appendToBody) {
-        const outermostContainer: HTMLElement = getNode(OUTERMOST)
-        document.body.appendChild(outermostContainer)
-    }
 }
 
 export default triggerModal
