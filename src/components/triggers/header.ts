@@ -2,10 +2,9 @@ import { getNode } from '../../utils/domUtils'
 import CLASS_NAMES from '../classNames'
 import { stretchState } from '../../store'
 import { HeaderOptions } from '../options/header'
-import { triggerBackground, triggerClick } from './common'
-import { HoverOptions } from '../options/common'
+import { triggerBackground } from './common'
 
-const { HEADER, HEADER_TITLE, MODAL, FULL_SCREEN_BUTTON, CLOSE_BUTTON, OUTERMOST } = CLASS_NAMES
+const { HEADER, MODAL, FULL_SCREEN_BUTTON, CLOSE_BUTTON, OUTERMOST } = CLASS_NAMES
 let modalContainer: HTMLElement
 let headerContainer: HTMLElement
 
@@ -15,13 +14,6 @@ export const triggerHeader = (options: HeaderOptions): void => {
     if (options.background != null) {
         triggerBackground(headerContainer, options.background)
     }
-    if (typeof (options.titleLayout) == 'string') {
-        const titleContainer: HTMLElement = getNode(HEADER_TITLE)
-        const optionLayout: string = options.titleLayout
-        if (optionLayout == 'center') {
-            titleContainer.style.justifyContent = optionLayout
-        }
-    }
     if (options.enableFullScreen) {
         const fullScreenButton: HTMLElement = getNode(FULL_SCREEN_BUTTON)
         fullScreenButton.onmousedown = setFullScreen
@@ -30,22 +22,9 @@ export const triggerHeader = (options: HeaderOptions): void => {
         const closeModalButton: HTMLElement = getNode(CLOSE_BUTTON)
         closeModalButton.onmousedown = setModalClose
     }
-    if (options.touch) {
-        headerContainer.style.cursor = 'pointer'
-        triggerClick(headerContainer, 'header')
-    }
     if (options.enableMove) {
         headerContainer.onmousedown = setMove
         headerContainer.style.cursor = 'move'
-    }
-    if (options.buttonHover != null) {
-        if (options.buttonHover.fullScreenButton != undefined && options.enableFullScreen) {
-            const fullScreenButton: HTMLElement = getNode(FULL_SCREEN_BUTTON)
-            const tempOptions: HoverOptions = Object.assign({}, options.buttonHover.fullScreenButton)
-            if (typeof (tempOptions.color) == 'string') fullScreenButton.style.color = tempOptions.color
-            if (typeof (tempOptions.backgroundColor) == 'string') fullScreenButton.style.backgroundColor = tempOptions.backgroundColor
-            if (typeof (tempOptions.boxShadow) == 'string') fullScreenButton.style.boxShadow = tempOptions.boxShadow
-        }
     }
 }
 

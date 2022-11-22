@@ -15,6 +15,8 @@ import renderHeader from './header'
 const { MODAL, OUTERMOST } = CLASS_NAMES
 
 const renderModal = (options: HelloOptions): void => {
+    console.log("helloOptions:", options)
+
     const outermostNode = stringToNode(outermost)
     const modalNode = stringToNode(modal)
     const borderNode = stringToNode(border)
@@ -39,7 +41,7 @@ const renderModal = (options: HelloOptions): void => {
         renderHeader(options.header)
     }
     if (options.content != defaultContentOptions) {
-        modalContainer.appendChild(contentNode)
+        modalContainer.appendChild(contentNode) 
         renderContent(options.content)
     }
     modalContainer.appendChild(bottomNode)

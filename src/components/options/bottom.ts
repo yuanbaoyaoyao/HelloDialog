@@ -2,7 +2,6 @@ import { BackgroundOptions, ButtonOptions } from './common'
 export interface BottomOptions {
     background?: string | BackgroundOptions | null
     button?: string | Array<string> | ButtonOptions | Array<ButtonOptions> | null
-    touch?: boolean | null
     layout?: string
 }
 
@@ -10,7 +9,6 @@ export const defaultBottomOptions: BottomOptions = {
     background: null,
     button: null,
     layout: 'right',
-    touch: null,
 }
 
 export const getBottomOptions = (options: object): BottomOptions => {

@@ -7,18 +7,17 @@ type contentType = 'text' | 'input' | 'select' | 'slider'
 //  contentItem   一个通用className+提出可自定义className
 //  contentItem
 export interface ContentOptions {
+    title?: string | null
     text?: string | null,
-    background?: string | BackgroundOptions | null,
-    touch?: boolean | null,
     layout?: string,
     type?: contentType,
+    background?: string | BackgroundOptions | null,
     loading?: boolean,
 }
 
 export const defaultContentOptions: ContentOptions = {
     text: null,
     background: null,
-    touch: null,
     layout: 'center',
     type: 'text',
     loading: false,

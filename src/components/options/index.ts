@@ -48,7 +48,6 @@ export const getOptions = (args: HelloArgs): HelloOptions => {
     options.backdrop = getBackdropOptions(options.backdrop)
     options.icon = getIconOptions(options.icon)
     const helloOptions: HelloOptions = Object.assign({}, defaultOptions, options)
-    console.log("helloOptions:", helloOptions)
     return helloOptions
 }
 

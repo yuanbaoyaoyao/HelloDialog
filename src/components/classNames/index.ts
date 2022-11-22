@@ -23,10 +23,10 @@ export const CLASS_NAMES: ClassNameList = addPrefix({
     BACKDROP: 'backdrop',
     MODAL: 'modal',
     HEADER: 'header',
-    HEADER_TITLE: 'header-title',
     FULL_SCREEN_BUTTON: 'full-screen-button',
     CLOSE_BUTTON: 'close-button',
     CONTENT: 'content',
+    TITLE: 'title',
     BOTTOM: 'bottom',
 
     ICON_CONTAINER: 'icon-container',
