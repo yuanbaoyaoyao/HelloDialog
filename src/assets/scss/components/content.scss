@@ -1,0 +1,12 @@
+@import '../mixins/index.scss';
+
+.hello-modal {
+    @include helloModal();
+
+    .hello-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,49 @@
+@mixin forkBody {
+    content: "";
+    position: absolute;
+    height: 18px;
+    width: 1.6px;
+    bottom: 3px;
+    background-color: black;
+    cursor: pointer;
+}
+
+@mixin helloModal {
+    position: fixed;
+    border-radius: 3px;
+    min-width: 300px;
+    min-height: 70px;
+    width: fit-content;
+    height: fit-content;
+    z-index: 10000;
+    background-color: white;
+    color: black;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    animation: showHelloDialogDom 0.4s;
+}
+
+@keyframes showHelloDialogDom {
+    0% {
+        transform: scale(1);
+    }
+
+    5% {
+        transform: scale(0.6);
+    }
+
+    55% {
+        transform: scale(1.03);
+    }
+
+    85% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

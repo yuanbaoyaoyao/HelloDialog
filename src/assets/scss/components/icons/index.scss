@@ -1,0 +1,14 @@
+@import url(./error.scss);
+@import url(./info.scss);
+@import url(./question.scss);
+@import url(./success.scss);
+@import url(./warning.scss);
+
+.hello-icon-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border-width: 3px;
+    margin: 20px;
+}

@@ -1,0 +1,75 @@
+.hello-modal {
+    @include helloModal();
+
+    .hello-right-stretch {
+        width: 5px;
+        height: 100%;
+        position: absolute;
+        cursor: e-resize;
+        right: 0;
+    }
+
+    .hello-top-stretch {
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        cursor: n-resize;
+        top: 0;
+    }
+
+    .hello-bottom-stretch {
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        cursor: n-resize;
+        bottom: 0;
+    }
+
+    .hello-left-stretch {
+        width: 5px;
+        height: 100%;
+        position: absolute;
+        cursor: e-resize;
+        left: 0;
+    }
+
+    .hello-top-right-stretch {
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        cursor: ne-resize;
+        z-index: 10000000000;
+        right: 0;
+        top: 0;
+    }
+
+    .hello-top-left-stretch {
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        cursor: nw-resize;
+        z-index: 10000000000;
+        left: 0;
+        top: 0;
+    }
+
+    .hello-bottom-right-stretch {
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        cursor: se-resize;
+        z-index: 10000000000;
+        right: 0;
+        bottom: 0;
+    }
+
+    .hello-bottom-left-stretch {
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        cursor: ne-resize;
+        z-index: 10000000000;
+        left: 0;
+        bottom: 0;
+    }
+}

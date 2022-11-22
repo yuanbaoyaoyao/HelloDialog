@@ -1,6 +1,6 @@
 type ButtonSizeOptions = 'large' | 'medium' | 'small'
 type ButtonTypeOptions = 'primary' | 'default' | 'success' | 'info' | 'warning' | 'danger' | 'text'
-type ButtonShapeOptions = 'default' | 'plain' | 'round' | 'circle'
+type ButtonShapeOptions = 'default' | 'plain' | 'round' | 'circle' | 'long'
 
 export interface ButtonOptions {
     text?: string
