@@ -4,26 +4,35 @@ import { getBottomOptions, BottomOptions, defaultBottomOptions } from './bottom'
 import { getContentOptions, ContentOptions, defaultContentOptions } from './content'
 import { getHeaderOptions, HeaderOptions, defaultHeaderOptions } from './header'
 import { getModalOptions, ModalOptions, defaultModalOptions } from './modal'
-import { getIconOptions, IconOptions, defaultIconOptions } from './icons'
+import { getIconOptions } from './icons'
+import { CommonAttributesOptions, defaultBackgroundOptions } from './common'
 
-export interface HelloOptions {
+export interface HelloOptions extends CommonAttributesOptions {
     backdrop: BackdropOptions,
     border: BorderOptions,
     bottom: BottomOptions,
     content: ContentOptions,
     header: HeaderOptions,
     modal: ModalOptions,
-    icon: IconOptions
 }
 
 export const defaultOptions: HelloOptions = {
+    title: null,
+    text: null,
+    icon: null,
+    button: null,
+    image: null,
+    enableMove: false,
+    showCloseModalButton: false,
+    enableFullScreen: false,
+    background: defaultBackgroundOptions,
+    timer: null,
     backdrop: defaultBackdropOptions,
     border: defaultBorderOptions,
     bottom: defaultBottomOptions,
     content: defaultContentOptions,
     header: defaultHeaderOptions,
     modal: defaultModalOptions,
-    icon: defaultIconOptions
 }
 
 export type HelloArgs = Partial<HelloOptions>

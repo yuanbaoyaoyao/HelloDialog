@@ -1,7 +1,7 @@
 import { getNode } from '../../utils/domUtils'
 import CLASS_NAMES from '../classNames'
 import { BottomOptions } from '../options/bottom'
-import { ButtonOptions, HoverOptions } from '../options/common'
+import { ButtonOptions } from '../options/common'
 import { triggerBackground, triggerClick } from './common'
 
 const { BOTTOM } = CLASS_NAMES
@@ -32,9 +32,7 @@ export const triggerBottom = (options: BottomOptions): void => {
             if (typeof (firstButton) == 'string') {
                 defaultButtonContainer.textContent = firstButton
             } else if (typeof (options.button[0]) == 'object') {
-                let hoverOptions = <HoverOptions>Object.assign({}, options.button[0].hover)
-                defaultButtonContainer.textContent = firstButton.text
-                triggerHover(defaultButtonContainer, hoverOptions)
+                defaultButtonContainer.textContent = firstButton.text as string
             }
             triggerClick(defaultButtonContainer, firstButton)
             if (options.button.length > 1) {
@@ -44,10 +42,7 @@ export const triggerBottom = (options: BottomOptions): void => {
                         newButtonContainer.textContent = options.button[i] as string
                     } else if (typeof (options.button[i]) == 'object') {
                         let buttonOptions = <ButtonOptions>Object.assign({}, options.button[i])
-                        newButtonContainer.textContent = buttonOptions.text
-                        if (buttonOptions.hover != null) {
-                            triggerHover(newButtonContainer, buttonOptions.hover)
-                        }
+                        newButtonContainer.textContent = buttonOptions.text as string
                     }
                     bottomContainer.prepend(newButtonContainer)
                     triggerClick(newButtonContainer, options.button[i])
@@ -60,19 +55,6 @@ export const triggerBottom = (options: BottomOptions): void => {
         defaultButtonContainer.style.backgroundColor = "#1677FF"
         defaultButtonContainer.style.color = "white"
         defaultButtonContainer.style.borderColor = 'inherit'
-    }
-}
-
-const triggerHover = (container: HTMLElement, options: HoverOptions) => {
-    container.onmouseover = () => {
-        container.style.color = options.color ? options.color : ''
-        container.style.backgroundColor = options.backgroundColor ? options.backgroundColor : ''
-        container.style.boxShadow = options.boxShadow ? options.boxShadow : ''
-    }
-    container.onmouseout = () => {
-        container.style.color = ''
-        container.style.backgroundColor = ''
-        container.style.boxShadow = ''
     }
 }
 

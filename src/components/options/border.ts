@@ -5,7 +5,7 @@ export interface BorderOptions {
 
 export const defaultBorderOptions: BorderOptions = {
     enable: true,
-    selected: null
+    selected: null,
 }
 
 export const getBorderOptions = (options: object): BorderOptions => {

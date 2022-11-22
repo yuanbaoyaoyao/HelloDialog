@@ -7,7 +7,7 @@ export interface BackdropOptions {
 
 export const defaultBackdropOptions: BackdropOptions = {
     closeModal: true,
-    background: defaultBackgroundOptions
+    background: defaultBackgroundOptions,
 }
 
 export const getBackdropOptions = (options: object | string): BackdropOptions => {

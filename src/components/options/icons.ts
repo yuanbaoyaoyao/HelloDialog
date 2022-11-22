@@ -1,11 +1,11 @@
+export type IconNameOptions = 'error' | 'info' | 'question' | 'success' | 'warning'
+
 export interface IconOptions {
-    iconName?: string | null
-    alwaysAnimated?: boolean
+    iconName?: IconNameOptions | null
 }
 
 export const defaultIconOptions: IconOptions = {
     iconName: null,
-    alwaysAnimated: false
 }
 
 export const getIconOptions = (options: object | string): IconOptions => {
@@ -22,7 +22,6 @@ export const getIconOptions = (options: object | string): IconOptions => {
     if (options == undefined) {
         return defaultIconOptions
     }
-    console.log("IconOptions:", finalOptions)
     return finalOptions
 }
 

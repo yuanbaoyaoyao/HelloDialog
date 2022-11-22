@@ -1,4 +1,5 @@
-import { BackgroundOptions, HoverOptions } from './common'
+import { BackgroundOptions } from './common'
+
 export interface HeaderOptions {
     background?: string | BackgroundOptions | null
     touch?: boolean
@@ -6,10 +7,6 @@ export interface HeaderOptions {
     enableCloseModal?: boolean
     titleLayout?: string
     enableMove?: boolean
-    buttonHover?: {
-        fullScreenButton: HoverOptions | null
-        closeModalButton: HoverOptions | null
-    } | null
 }
 
 export const defaultHeaderOptions: HeaderOptions = {
@@ -19,7 +16,6 @@ export const defaultHeaderOptions: HeaderOptions = {
     enableCloseModal: true,
     titleLayout: 'center',
     enableMove: false,
-    buttonHover: null
 }
 
 export const getHeaderOptions = (options: object | string): HeaderOptions => {

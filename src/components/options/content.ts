@@ -1,11 +1,17 @@
 import { BackgroundOptions } from './common'
 
+type contentType = 'text' | 'input' | 'select' | 'slider'
+
+//content中内容以items的形式由上到下排列
+//content 一个总的className
+//  contentItem   一个通用className+提出可自定义className
+//  contentItem
 export interface ContentOptions {
     text?: string | null,
     background?: string | BackgroundOptions | null,
     touch?: boolean | null,
     layout?: string,
-    type?: string,
+    type?: contentType,
     loading?: boolean,
 }
 

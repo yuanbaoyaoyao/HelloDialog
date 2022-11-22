@@ -37,3 +37,8 @@ export const triggerClick = (container: HTMLElement, value: string | ButtonOptio
         // }
     }
 }
+
+//通用属性触发
+export const triggerCommonAttributes = () => {
+
+}
